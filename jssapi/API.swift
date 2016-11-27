@@ -12,6 +12,15 @@ enum APIError : Error {
     case Serialization
 }
 
+enum APIHTTPError : Error {
+    case BadRequest
+    case AuthenticationFailed
+    case AuthorizationFailed
+    case NotFound
+    case ValidationFailed
+    case InternalError
+}
+
 class API : NSObject {
     let credential: URLCredential
     let url: URL
@@ -41,6 +50,7 @@ class API : NSObject {
     }
     
     // fetchXML "decorates" a dataTask by performing a bunch of sanity checking for each request by an object store
+    // a
     func fetchXML(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         

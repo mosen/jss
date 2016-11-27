@@ -17,7 +17,6 @@
 		3405CCDE1DE56E370086E806 /* AccountParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3405CCDC1DE567C50086E806 /* AccountParser.swift */; };
 		34E338171DE3ED6F0045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E338181DE3F1860045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
-		34E3381A1DE3F1A30045861F /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338191DE3F1A30045861F /* APITests.swift */; };
 		34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490781DDB2AF700D1E523 /* ActivationCode.swift */; };
 		34E3381C1DE3FA550045861F /* Privileges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490761DDB2A7600D1E523 /* Privileges.swift */; };
 		34E3381D1DE3FA570045861F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490721DDB28F600D1E523 /* Account.swift */; };
@@ -40,10 +39,30 @@
 		840490771DDB2A7600D1E523 /* Privileges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490761DDB2A7600D1E523 /* Privileges.swift */; };
 		840490791DDB2AF700D1E523 /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490781DDB2AF700D1E523 /* ActivationCode.swift */; };
 		84C6644D1DE59A6900E8C00B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 84C6644C1DE59A6900E8C00B /* .gitignore */; };
+		84C6644F1DE819E500E8C00B /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6644E1DE819E400E8C00B /* Package.swift */; };
+		84C664511DE932F300E8C00B /* PackageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664501DE932F300E8C00B /* PackageStore.swift */; };
+		84C664521DE932F300E8C00B /* PackageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664501DE932F300E8C00B /* PackageStore.swift */; };
+		84C664541DE982D600E8C00B /* JSSResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664531DE982D600E8C00B /* JSSResource.swift */; };
+		84C664551DE982D600E8C00B /* JSSResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664531DE982D600E8C00B /* JSSResource.swift */; };
+		84C664571DE9876400E8C00B /* MappingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664561DE9876400E8C00B /* MappingParser.swift */; };
+		84C664581DE9876400E8C00B /* MappingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664561DE9876400E8C00B /* MappingParser.swift */; };
+		84C6645A1DEAD23800E8C00B /* MirrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664591DEAD23800E8C00B /* MirrorParser.swift */; };
+		84C6645B1DEAD23800E8C00B /* MirrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664591DEAD23800E8C00B /* MirrorParser.swift */; };
+		84C6645E1DEAD95500E8C00B /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6645C1DEAD95500E8C00B /* ParserTests.swift */; };
+		84C6645F1DEADA0E00E8C00B /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6644E1DE819E400E8C00B /* Package.swift */; };
+		84C664671DEADE3D00E8C00B /* jssapiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664661DEADE3D00E8C00B /* jssapiTests.swift */; };
+		84C664691DEADE3D00E8C00B /* jssapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B02A321DD48EB3001596E5 /* jssapi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		24B02A4F1DD496BA001596E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B02A291DD48EB3001596E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24B02A311DD48EB3001596E5;
+			remoteInfo = jssapi;
+		};
+		84C6646A1DEADE3D00E8C00B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24B02A291DD48EB3001596E5 /* Project object */;
 			proxyType = 1;
@@ -89,6 +108,15 @@
 		840490761DDB2A7600D1E523 /* Privileges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Privileges.swift; sourceTree = "<group>"; };
 		840490781DDB2AF700D1E523 /* ActivationCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivationCode.swift; path = objects/ActivationCode.swift; sourceTree = "<group>"; };
 		84C6644C1DE59A6900E8C00B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		84C6644E1DE819E400E8C00B /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = jssapi/objects/Package.swift; sourceTree = SOURCE_ROOT; };
+		84C664501DE932F300E8C00B /* PackageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PackageStore.swift; path = stores/PackageStore.swift; sourceTree = "<group>"; };
+		84C664531DE982D600E8C00B /* JSSResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSResource.swift; path = objects/JSSResource.swift; sourceTree = "<group>"; };
+		84C664561DE9876400E8C00B /* MappingParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MappingParser.swift; path = parsers/MappingParser.swift; sourceTree = "<group>"; };
+		84C664591DEAD23800E8C00B /* MirrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MirrorParser.swift; path = parsers/MirrorParser.swift; sourceTree = "<group>"; };
+		84C6645C1DEAD95500E8C00B /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserTests.swift; path = jssapiTests/ParserTests.swift; sourceTree = SOURCE_ROOT; };
+		84C664641DEADE3D00E8C00B /* jssapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jssapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C664661DEADE3D00E8C00B /* jssapiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jssapiTests.swift; sourceTree = "<group>"; };
+		84C664681DEADE3D00E8C00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +142,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84C664611DEADE3D00E8C00B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C664691DEADE3D00E8C00B /* jssapi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -124,6 +160,7 @@
 				24B02A341DD48EB3001596E5 /* jss */,
 				24B02A4A1DD496B9001596E5 /* jssapiTests */,
 				34E338311DE41E790045861F /* jss */,
+				84C664651DEADE3D00E8C00B /* jssapiTests */,
 				24B02A331DD48EB3001596E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,6 +171,7 @@
 				24B02A321DD48EB3001596E5 /* jssapi.framework */,
 				24B02A491DD496B9001596E5 /* jssTests.xctest */,
 				34E338301DE41E790045861F /* jss */,
+				84C664641DEADE3D00E8C00B /* jssapiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +195,7 @@
 		24B02A4A1DD496B9001596E5 /* jssapiTests */ = {
 			isa = PBXGroup;
 			children = (
+				84C6645C1DEAD95500E8C00B /* ParserTests.swift */,
 				24B02A411DD494A6001596E5 /* UAPITests.swift */,
 				34E338191DE3F1A30045861F /* APITests.swift */,
 				24B02A4D1DD496BA001596E5 /* Info.plist */,
@@ -168,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				3405CCDC1DE567C50086E806 /* AccountParser.swift */,
+				84C664561DE9876400E8C00B /* MappingParser.swift */,
+				84C664591DEAD23800E8C00B /* MirrorParser.swift */,
 			);
 			name = parsers;
 			sourceTree = "<group>";
@@ -175,6 +216,7 @@
 		34E338221DE40D280045861F /* stores */ = {
 			isa = PBXGroup;
 			children = (
+				84C664501DE932F300E8C00B /* PackageStore.swift */,
 				34E338231DE40DC60045861F /* ActivationCodeStore.swift */,
 				34E338291DE414FE0045861F /* AccountsStore.swift */,
 				34E338251DE411340045861F /* JSSStore.swift */,
@@ -193,6 +235,8 @@
 		8404906B1DDB276B00D1E523 /* objects */ = {
 			isa = PBXGroup;
 			children = (
+				84C6644E1DE819E400E8C00B /* Package.swift */,
+				84C664531DE982D600E8C00B /* JSSResource.swift */,
 				8404906C1DDB278200D1E523 /* Building.swift */,
 				8404906E1DDB281C00D1E523 /* Department.swift */,
 				840490701DDB286200D1E523 /* SystemInformation.swift */,
@@ -202,6 +246,15 @@
 				840490781DDB2AF700D1E523 /* ActivationCode.swift */,
 			);
 			name = objects;
+			sourceTree = "<group>";
+		};
+		84C664651DEADE3D00E8C00B /* jssapiTests */ = {
+			isa = PBXGroup;
+			children = (
+				84C664661DEADE3D00E8C00B /* jssapiTests.swift */,
+				84C664681DEADE3D00E8C00B /* Info.plist */,
+			);
+			path = jssapiTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +324,24 @@
 			productReference = 34E338301DE41E790045861F /* jss */;
 			productType = "com.apple.product-type.tool";
 		};
+		84C664631DEADE3D00E8C00B /* jssapiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C6646C1DEADE3D00E8C00B /* Build configuration list for PBXNativeTarget "jssapiTests" */;
+			buildPhases = (
+				84C664601DEADE3D00E8C00B /* Sources */,
+				84C664611DEADE3D00E8C00B /* Frameworks */,
+				84C664621DEADE3D00E8C00B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84C6646B1DEADE3D00E8C00B /* PBXTargetDependency */,
+			);
+			name = jssapiTests;
+			productName = jssapiTests;
+			productReference = 84C664641DEADE3D00E8C00B /* jssapiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -294,6 +365,10 @@
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
+					84C664631DEADE3D00E8C00B = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 24B02A2C1DD48EB3001596E5 /* Build configuration list for PBXProject "jss" */;
@@ -311,6 +386,7 @@
 				24B02A311DD48EB3001596E5 /* jssapi */,
 				24B02A481DD496B9001596E5 /* jssTests */,
 				34E3382F1DE41E790045861F /* jss */,
+				84C664631DEADE3D00E8C00B /* jssapiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -331,6 +407,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84C664621DEADE3D00E8C00B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -339,13 +422,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				840490751DDB29D000D1E523 /* Site.swift in Sources */,
+				84C6645A1DEAD23800E8C00B /* MirrorParser.swift in Sources */,
 				34E338241DE40DC60045861F /* ActivationCodeStore.swift in Sources */,
+				84C664541DE982D600E8C00B /* JSSResource.swift in Sources */,
 				24B02A401DD48F32001596E5 /* UAPI.swift in Sources */,
 				8404906D1DDB278200D1E523 /* Building.swift in Sources */,
 				840490711DDB286200D1E523 /* SystemInformation.swift in Sources */,
 				34E338171DE3ED6F0045861F /* API.swift in Sources */,
+				84C664511DE932F300E8C00B /* PackageStore.swift in Sources */,
+				84C6644F1DE819E500E8C00B /* Package.swift in Sources */,
 				840490791DDB2AF700D1E523 /* ActivationCode.swift in Sources */,
 				24B02A3E1DD48EEA001596E5 /* Token.swift in Sources */,
+				84C664571DE9876400E8C00B /* MappingParser.swift in Sources */,
 				840490771DDB2A7600D1E523 /* Privileges.swift in Sources */,
 				34E3382A1DE414FE0045861F /* AccountsStore.swift in Sources */,
 				8404906F1DDB281C00D1E523 /* Department.swift in Sources */,
@@ -360,20 +448,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				34E3381C1DE3FA550045861F /* Privileges.swift in Sources */,
+				84C6645B1DEAD23800E8C00B /* MirrorParser.swift in Sources */,
 				24B02A551DD496CE001596E5 /* UAPI.swift in Sources */,
+				84C6645F1DEADA0E00E8C00B /* Package.swift in Sources */,
+				84C664551DE982D600E8C00B /* JSSResource.swift in Sources */,
 				3405CCDE1DE56E370086E806 /* AccountParser.swift in Sources */,
 				34E338181DE3F1860045861F /* API.swift in Sources */,
 				34E3381E1DE3FA590045861F /* Site.swift in Sources */,
 				34E338281DE4132E0045861F /* JSSStore.swift in Sources */,
+				84C664521DE932F300E8C00B /* PackageStore.swift in Sources */,
 				24D66F661DD9BE2F001596E5 /* Token.swift in Sources */,
 				34E338201DE3FA5D0045861F /* Department.swift in Sources */,
 				34E338211DE3FA5E0045861F /* Building.swift in Sources */,
+				84C6645E1DEAD95500E8C00B /* ParserTests.swift in Sources */,
+				84C664581DE9876400E8C00B /* MappingParser.swift in Sources */,
 				34E3381D1DE3FA570045861F /* Account.swift in Sources */,
 				34E3381F1DE3FA5B0045861F /* SystemInformation.swift in Sources */,
 				34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */,
 				34E3382B1DE414FE0045861F /* AccountsStore.swift in Sources */,
 				34E338271DE4132B0045861F /* ActivationCodeStore.swift in Sources */,
-				34E3381A1DE3F1A30045861F /* APITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +478,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84C664601DEADE3D00E8C00B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C664671DEADE3D00E8C00B /* jssapiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -392,6 +493,11 @@
 			isa = PBXTargetDependency;
 			target = 24B02A311DD48EB3001596E5 /* jssapi */;
 			targetProxy = 24B02A4F1DD496BA001596E5 /* PBXContainerItemProxy */;
+		};
+		84C6646B1DEADE3D00E8C00B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24B02A311DD48EB3001596E5 /* jssapi */;
+			targetProxy = 84C6646A1DEADE3D00E8C00B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -575,6 +681,30 @@
 			};
 			name = Release;
 		};
+		84C6646D1DEADE3D00E8C00B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = jssapiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.mosen.jssapiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		84C6646E1DEADE3D00E8C00B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = jssapiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.mosen.jssapiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -613,6 +743,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		84C6646C1DEADE3D00E8C00B /* Build configuration list for PBXNativeTarget "jssapiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C6646D1DEADE3D00E8C00B /* Debug */,
+				84C6646E1DEADE3D00E8C00B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

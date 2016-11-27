@@ -7,7 +7,7 @@ struct AccountPreferences {
     var timezone: String?
 }
 
-struct Account {
+class Account {
     var id: Int? = nil
     var username: String? = nil
     var fullName: String? = nil
@@ -52,7 +52,7 @@ struct Account {
 //        }
 //    }
     
-    static func arrayFromXML(root: XMLElement) -> [Account]? {
+    class func arrayFromXML(root: XMLElement) -> [Account]? {
         return nil
     }
 }
