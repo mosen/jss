@@ -105,6 +105,11 @@ class JSSXMLKeyedArchiver: NSCoder {
         }
     }
     
+    override func encode(_ intv: Int, forKey key: String) {
+        let strValue = String(intv)
+        self.doc.rootElement()?.addChild(XMLElement(name: key, stringValue: strValue))
+    }
+    
     // MARK:- NSKeyedArchiver Simulation
     func setClassName(_ codedName: String?, for cls: AnyClass) {
         

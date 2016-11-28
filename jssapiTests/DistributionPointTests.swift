@@ -25,6 +25,10 @@ class DistributionPointTests: XCTestCase {
             dp.ipAddress = "localhost"
             dp.connectionType = "SMB"
             dp.shareName = "distribution_point"
+            dp.readOnlyUsername = "jss"
+            dp.readOnlyPasswordSha256 = "7cb9fc59c2d43289019b8324b342505401dcaebbc780f57c7030a8fa4a1afa5d"
+            dp.readWriteUsername = "jss"
+            dp.readWritePasswordSha256 = "7cb9fc59c2d43289019b8324b342505401dcaebbc780f57c7030a8fa4a1afa5d"
             
             store.create(dp) {
                 (updated, error) in

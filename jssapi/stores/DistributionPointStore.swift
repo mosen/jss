@@ -29,6 +29,7 @@ class DistributionPointStore : JSSStore {
         request.httpMethod = "POST"
         
         let xmlDoc = JSSXMLKeyedArchiver.archivedXML(withRootObject: distributionPoint, rootTag: "distribution_point")
+        print(xmlDoc.xmlString)
         
         self.api.postXML(request: request, xml: xmlDoc) {
             (data, response, error) in
