@@ -1,7 +1,20 @@
 import Foundation
 
-// Parse elements found in XML if they match an objects properties via reflection
+// Probably not the most elegant algorithm but it works
+func toCamelCase(_ text: String) -> String {
+    guard text.contains("_") else {
+        return text
+    }
+    
+    var snakedComponents = text.components(separatedBy: "_")
+    let firstElement: String = snakedComponents.removeFirst()
+    let restElements = snakedComponents.map() { $0.capitalized }
+    
+    return firstElement + restElements.joined()
+}
 
+
+// Parse elements found in XML if they match an objects properties via reflection
 class MirrorParser : NSObject, XMLParserDelegate {
     
     let subject: AnyObject
@@ -26,9 +39,11 @@ class MirrorParser : NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
-        if labels.contains(elementName) {
+        let camelElementName = toCamelCase(elementName)
+        
+        if labels.contains(camelElementName) {
             self.ignoreCurrent = false
-            self.currentLabel = elementName
+            self.currentLabel = camelElementName
         } else {
             self.ignoreCurrent = true
             self.currentLabel = nil
@@ -38,7 +53,26 @@ class MirrorParser : NSObject, XMLParserDelegate {
     func parser(_: XMLParser, didEndElement: String, namespaceURI: String?, qualifiedName: String?) {
         if !self.ignoreCurrent {
             if let objectKey = self.currentLabel {
-                self.subject.setValue("asd", forKey: #keyPath(objectKey))
+                print("Setting value for \(objectKey)")
+    
+                let val = self.subject.value(forKey: objectKey)
+                
+                switch val {
+                case is String?:
+                    fallthrough
+                case is String:
+                    self.subject.setValue(self.currentText, forKey: objectKey)
+                case is Int:
+                    if let text = self.currentText {
+                        let currentInt = Int(text) ?? -1
+                        self.subject.setValue(currentInt, forKey: objectKey)
+                    }
+                case is Bool:
+                    let currentBool = self.currentText?.lowercased() == "true"
+                    self.subject.setValue(currentBool, forKey: objectKey)
+                default:
+                    print("Unhandled type for key \(objectKey)")
+                } 
             }
         } else {
             print("Ignored XML tag: \(didEndElement)")

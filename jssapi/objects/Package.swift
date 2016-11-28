@@ -3,12 +3,12 @@ import Foundation
 
 class Package : JSSResource {
     
-    var id: Int? = nil
+    var id: Int = -1
     
     // General
-    let name: String
+    var name: String
     var category: String?
-    let filename: String
+    var filename: String
     var info: String?
     var notes: String?
     

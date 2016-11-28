@@ -43,6 +43,6 @@ class ParserTests: XCTestCase {
         parser.delegate = parserDelegate
 
         parser.parse()
-        
+        dump(self.package)
     }
 }
