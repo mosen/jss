@@ -50,4 +50,30 @@ class PackageStore : JSSStore {
             }
         }
     }
+    
+    func create(_ package: Package, completionHandler: @escaping(Int?, Error?) -> Void) {
+        let url = self.api.url.appendingPathComponent("/JSSResource/packages/id/0")
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let xmlDoc = JSSXMLKeyedArchiver.archivedXML(withRootObject: package, rootTag: "package")
+        
+        print(xmlDoc.xmlString)
+        
+        self.api.postXML(request: request, xml: xmlDoc) {
+            (data, response, error) in
+            
+            if let err = error {
+                completionHandler(nil, err)
+            }
+            
+            if let content = data {
+                // success response
+                print(String(data: content, encoding: .utf8))
+                
+                completionHandler(0, nil)
+            } else {
+                
+            }
+        }
+    }
 }

@@ -3,7 +3,7 @@ import Foundation
 
 class Package : JSSResource, NSCoding {
     
-    var id: Int = -1
+    var id: Int = 0
     
     // General
     var name: String?
@@ -40,34 +40,6 @@ class Package : JSSResource, NSCoding {
         
         self.name = name
         self.filename = filename
-    }
-    
-    // Convert this struct to its API XML representation
-    func toXML() -> XMLDocument {
-        let doc = XMLDocument()
-        let root = XMLElement(name: "package")
-//        let numberFormatter = NumberFormatter()
-//        
-//        if let id = self.id {
-//            let idEl = XMLElement(name: "id", stringValue: String(int: id))
-//            root.addChild(idEl)
-//        }
-        
-        let name = XMLElement(name: "name", stringValue: self.name)
-        let filename = XMLElement(name: "filename", stringValue: self.filename)
-        let category = XMLElement(name: "category", stringValue: self.category)
-        let info = XMLElement(name: "info", stringValue: self.info)
-        let notes = XMLElement(name: "notes", stringValue: self.notes)
-        
-        root.addChild(name)
-        root.addChild(filename)
-        root.addChild(category)
-        root.addChild(info)
-        root.addChild(notes)
-        
-        doc.setRootElement(root)
-        
-        return doc
     }
     
     // MARK:- NSCoding

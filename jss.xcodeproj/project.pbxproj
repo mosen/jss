@@ -14,6 +14,7 @@
 		244A45F21DEC039B001596E5 /* DistributionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45EF1DEC00B0001596E5 /* DistributionPoint.swift */; };
 		244A45F41DEC0699001596E5 /* DistributionPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45F31DEC0699001596E5 /* DistributionPointTests.swift */; };
 		244A45F51DEC12AC001596E5 /* JSSXMLKeyedArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45EB1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift */; };
+		244A45F71DEC4C91001596E5 /* PackageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45F61DEC4C91001596E5 /* PackageTests.swift */; };
 		24B02A371DD48EB3001596E5 /* jssapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B02A351DD48EB3001596E5 /* jssapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24B02A3E1DD48EEA001596E5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3D1DD48EEA001596E5 /* Token.swift */; };
 		24B02A401DD48F32001596E5 /* UAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3F1DD48F32001596E5 /* UAPI.swift */; };
@@ -83,6 +84,7 @@
 		244A45ED1DEBFEE3001596E5 /* DistributionPointStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistributionPointStore.swift; path = stores/DistributionPointStore.swift; sourceTree = "<group>"; };
 		244A45EF1DEC00B0001596E5 /* DistributionPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistributionPoint.swift; path = objects/DistributionPoint.swift; sourceTree = "<group>"; };
 		244A45F31DEC0699001596E5 /* DistributionPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributionPointTests.swift; sourceTree = "<group>"; };
+		244A45F61DEC4C91001596E5 /* PackageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageTests.swift; sourceTree = "<group>"; };
 		24B02A321DD48EB3001596E5 /* jssapi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = jssapi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B02A351DD48EB3001596E5 /* jssapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jssapi.h; sourceTree = "<group>"; };
 		24B02A361DD48EB3001596E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				84C6645C1DEAD95500E8C00B /* ParserTests.swift */,
 				24B02A411DD494A6001596E5 /* UAPITests.swift */,
 				34E338191DE3F1A30045861F /* APITests.swift */,
+				244A45F61DEC4C91001596E5 /* PackageTests.swift */,
 				24B02A4D1DD496BA001596E5 /* Info.plist */,
 				244A45F31DEC0699001596E5 /* DistributionPointTests.swift */,
 			);
@@ -427,6 +430,7 @@
 				24DC910B1DEBE537001596E5 /* APITests.swift in Sources */,
 				84C664521DE932F300E8C00B /* PackageStore.swift in Sources */,
 				24D66F661DD9BE2F001596E5 /* Token.swift in Sources */,
+				244A45F71DEC4C91001596E5 /* PackageTests.swift in Sources */,
 				34E338201DE3FA5D0045861F /* Department.swift in Sources */,
 				244A45F51DEC12AC001596E5 /* JSSXMLKeyedArchiver.swift in Sources */,
 				34E338211DE3FA5E0045861F /* Building.swift in Sources */,

@@ -61,10 +61,11 @@ class DistributionPoint : JSSResource, NSCoding {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.ipAddress, forKey:"ip_address")
+        aCoder.encode(self.ipAddress, forKey:"ipAddress")
         aCoder.encode(self.isMaster, forKey:"is_master")
-        aCoder.encode(self.failoverPoint, forKey:"failover_point")
-        aCoder.encode(self.failoverPointUrl, forKey:"failover_point_url")
-        aCoder.encode(self.enableLoadBalancing, forKey:"enable_load_balancing")
+        //aCoder.encode(self.failoverPoint, forKey:"failover_point")
+        //aCoder.encode(self.failoverPointUrl, forKey:"failover_point_url")
+        //aCoder.encode(self.enableLoadBalancing, forKey:"enable_load_balancing")
         
         // File Sharing
         aCoder.encode(self.shareName, forKey:"share_name")
@@ -77,16 +78,16 @@ class DistributionPoint : JSSResource, NSCoding {
         aCoder.encode(self.readOnlyPasswordSha256, forKey:"read_only_password_sha256")
         
         // HTTP/HTTPS
-        aCoder.encode(self.httpDownloadsEnabled, forKey:"http_downloads_enabled")
-        aCoder.encode(self.port, forKey:"port")
-        aCoder.encode(self.context, forKey:"context")
-        aCoder.encode(self.httpUrl, forKey:"http_url")
-        aCoder.encode(self.noAuthenticationRequired, forKey:"no_authentication_required")
-        aCoder.encode(self.usernamePasswordRequired, forKey:"username_password_required")
-        aCoder.encode(self.httpUsername, forKey:"http_username")
-        aCoder.encode(self.httpPasswordSha256, forKey:"http_password_sha256")
-        aCoder.encode(self.certificateRequired, forKey:"certificate_required")
-        aCoder.encode(self.certificate, forKey:"certificate")
+//        aCoder.encode(self.httpDownloadsEnabled, forKey:"http_downloads_enabled")
+//        aCoder.encode(self.port, forKey:"port")
+//        aCoder.encode(self.context, forKey:"context")
+//        aCoder.encode(self.httpUrl, forKey:"http_url")
+//        aCoder.encode(self.noAuthenticationRequired, forKey:"no_authentication_required")
+//        aCoder.encode(self.usernamePasswordRequired, forKey:"username_password_required")
+//        aCoder.encode(self.httpUsername, forKey:"http_username")
+//        aCoder.encode(self.httpPasswordSha256, forKey:"http_password_sha256")
+//        aCoder.encode(self.certificateRequired, forKey:"certificate_required")
+//        aCoder.encode(self.certificate, forKey:"certificate")
     }
     
     override init() {

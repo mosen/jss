@@ -7,7 +7,7 @@ enum APIHTTPError : Error {
     case AuthenticationFailed // 401
     case AuthorizationFailed // 403
     case NotFound // 404
-    case ValidationFailed // 409
+    case ValidationFailed // 409 - also used for duplicates
     case InternalError // 500
     case Unknown(Int, Data?) // Any other HTTP error code
     
@@ -22,6 +22,7 @@ class API : NSObject {
     let credential: URLCredential
     let url: URL
     let protectionSpace: URLProtectionSpace
+    let sessionConfig: URLSessionConfiguration
     
     init(url: URL, credential: URLCredential) throws {
         self.url = url
@@ -37,8 +38,8 @@ class API : NSObject {
         let sharedCredentials = URLCredentialStorage.shared
         sharedCredentials.setDefaultCredential(credential, for: protectionSpace)
         
-        let defaultConfig = URLSessionConfiguration.default
-        defaultConfig.httpAdditionalHeaders = [
+        self.sessionConfig = URLSessionConfiguration.default
+        self.sessionConfig.httpAdditionalHeaders = [
             "Content-Type": "text/xml",
             "Accept": "text/xml"
         ]
@@ -49,7 +50,7 @@ class API : NSObject {
     // fetchXML "decorates" a dataTask by performing a bunch of sanity checking for each request by an object store
     // a
     func fetchXML(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let session = URLSession(configuration: self.sessionConfig)
         
         let task = session.dataTask(with: request) {
             (data, response, error) -> Void in
@@ -92,7 +93,13 @@ class API : NSObject {
     }
     
     func postXML(request: URLRequest, xml: XMLDocument, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let session = URLSession(configuration: URLSessionConfiguration.default)
+//        let defaultConfig = URLSessionConfiguration.default
+//        defaultConfig.httpAdditionalHeaders = [
+//            "Content-Type": "text/xml",
+//            "Accept": "text/xml"
+//        ]
+        
+        let session = URLSession(configuration: self.sessionConfig)
         
         let task = session.uploadTask(with: request, from: xml.xmlData) {
             (data, response, error) -> Void in

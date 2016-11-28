@@ -12,7 +12,10 @@ class JSSXMLKeyedArchiver: NSCoder {
     }
     
     class func archivedXML(withRootObject rootObject: Any, rootTag tag: String?) -> XMLDocument {
-        let xmlDoc = XMLDocument()
+        var xmlDoc = XMLDocument()
+        xmlDoc.version = "1.0"
+        xmlDoc.characterEncoding = "UTF-8"
+        
         let jssArchiver = JSSXMLKeyedArchiver(document: xmlDoc)
         
         jssArchiver.rootTag = tag

@@ -24,7 +24,9 @@ class DistributionPointTests: XCTestCase {
             dp.name = "fixture"
             dp.ipAddress = "localhost"
             dp.connectionType = "SMB"
+            dp.isMaster = false
             dp.shareName = "distribution_point"
+            dp.sharePort = 7139
             dp.readOnlyUsername = "jss"
             dp.readOnlyPasswordSha256 = "7cb9fc59c2d43289019b8324b342505401dcaebbc780f57c7030a8fa4a1afa5d"
             dp.readWriteUsername = "jss"
