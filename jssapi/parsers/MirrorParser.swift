@@ -68,11 +68,11 @@ class MirrorParser : NSObject, XMLParserDelegate {
                         self.subject.setValue(currentInt, forKey: objectKey)
                     }
                 case is Bool:
-                    let currentBool = self.currentText?.lowercased() == "true"
+                    let currentBool = self.currentText?.caseInsensitiveCompare("true") == NSComparisonResult.
                     self.subject.setValue(currentBool, forKey: objectKey)
                 default:
                     print("Unhandled type for key \(objectKey)")
-                } 
+                }
             }
         } else {
             print("Ignored XML tag: \(didEndElement)")

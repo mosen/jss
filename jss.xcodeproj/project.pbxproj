@@ -13,8 +13,6 @@
 		24B02A4E1DD496BA001596E5 /* jssapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B02A321DD48EB3001596E5 /* jssapi.framework */; };
 		24B02A551DD496CE001596E5 /* UAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3F1DD48F32001596E5 /* UAPI.swift */; };
 		24D66F661DD9BE2F001596E5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3D1DD48EEA001596E5 /* Token.swift */; };
-		3405CCDD1DE567C50086E806 /* AccountParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3405CCDC1DE567C50086E806 /* AccountParser.swift */; };
-		3405CCDE1DE56E370086E806 /* AccountParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3405CCDC1DE567C50086E806 /* AccountParser.swift */; };
 		34E338171DE3ED6F0045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E338181DE3F1860045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490781DDB2AF700D1E523 /* ActivationCode.swift */; };
@@ -44,8 +42,6 @@
 		84C664521DE932F300E8C00B /* PackageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664501DE932F300E8C00B /* PackageStore.swift */; };
 		84C664541DE982D600E8C00B /* JSSResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664531DE982D600E8C00B /* JSSResource.swift */; };
 		84C664551DE982D600E8C00B /* JSSResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664531DE982D600E8C00B /* JSSResource.swift */; };
-		84C664571DE9876400E8C00B /* MappingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664561DE9876400E8C00B /* MappingParser.swift */; };
-		84C664581DE9876400E8C00B /* MappingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664561DE9876400E8C00B /* MappingParser.swift */; };
 		84C6645A1DEAD23800E8C00B /* MirrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664591DEAD23800E8C00B /* MirrorParser.swift */; };
 		84C6645B1DEAD23800E8C00B /* MirrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664591DEAD23800E8C00B /* MirrorParser.swift */; };
 		84C6645E1DEAD95500E8C00B /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6645C1DEAD95500E8C00B /* ParserTests.swift */; };
@@ -92,7 +88,6 @@
 		24B02A411DD494A6001596E5 /* UAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UAPITests.swift; path = ../jssapi/UAPITests.swift; sourceTree = "<group>"; };
 		24B02A491DD496B9001596E5 /* jssTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jssTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B02A4D1DD496BA001596E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3405CCDC1DE567C50086E806 /* AccountParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountParser.swift; path = parsers/AccountParser.swift; sourceTree = "<group>"; };
 		34E338161DE3ED6F0045861F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		34E338191DE3F1A30045861F /* APITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		34E338231DE40DC60045861F /* ActivationCodeStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivationCodeStore.swift; path = stores/ActivationCodeStore.swift; sourceTree = "<group>"; };
@@ -111,7 +106,6 @@
 		84C6644E1DE819E400E8C00B /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = jssapi/objects/Package.swift; sourceTree = SOURCE_ROOT; };
 		84C664501DE932F300E8C00B /* PackageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PackageStore.swift; path = stores/PackageStore.swift; sourceTree = "<group>"; };
 		84C664531DE982D600E8C00B /* JSSResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSResource.swift; path = objects/JSSResource.swift; sourceTree = "<group>"; };
-		84C664561DE9876400E8C00B /* MappingParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MappingParser.swift; path = parsers/MappingParser.swift; sourceTree = "<group>"; };
 		84C664591DEAD23800E8C00B /* MirrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MirrorParser.swift; path = parsers/MirrorParser.swift; sourceTree = "<group>"; };
 		84C6645C1DEAD95500E8C00B /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserTests.swift; path = jssapiTests/ParserTests.swift; sourceTree = SOURCE_ROOT; };
 		84C664641DEADE3D00E8C00B /* jssapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jssapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,8 +200,6 @@
 		3405CCDB1DE567750086E806 /* parsers */ = {
 			isa = PBXGroup;
 			children = (
-				3405CCDC1DE567C50086E806 /* AccountParser.swift */,
-				84C664561DE9876400E8C00B /* MappingParser.swift */,
 				84C664591DEAD23800E8C00B /* MirrorParser.swift */,
 			);
 			name = parsers;
@@ -433,13 +425,11 @@
 				84C6644F1DE819E500E8C00B /* Package.swift in Sources */,
 				840490791DDB2AF700D1E523 /* ActivationCode.swift in Sources */,
 				24B02A3E1DD48EEA001596E5 /* Token.swift in Sources */,
-				84C664571DE9876400E8C00B /* MappingParser.swift in Sources */,
 				840490771DDB2A7600D1E523 /* Privileges.swift in Sources */,
 				34E3382A1DE414FE0045861F /* AccountsStore.swift in Sources */,
 				8404906F1DDB281C00D1E523 /* Department.swift in Sources */,
 				34E338261DE411340045861F /* JSSStore.swift in Sources */,
 				840490731DDB28F600D1E523 /* Account.swift in Sources */,
-				3405CCDD1DE567C50086E806 /* AccountParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +442,6 @@
 				24B02A551DD496CE001596E5 /* UAPI.swift in Sources */,
 				84C6645F1DEADA0E00E8C00B /* Package.swift in Sources */,
 				84C664551DE982D600E8C00B /* JSSResource.swift in Sources */,
-				3405CCDE1DE56E370086E806 /* AccountParser.swift in Sources */,
 				34E338181DE3F1860045861F /* API.swift in Sources */,
 				34E3381E1DE3FA590045861F /* Site.swift in Sources */,
 				34E338281DE4132E0045861F /* JSSStore.swift in Sources */,
@@ -461,7 +450,6 @@
 				34E338201DE3FA5D0045861F /* Department.swift in Sources */,
 				34E338211DE3FA5E0045861F /* Building.swift in Sources */,
 				84C6645E1DEAD95500E8C00B /* ParserTests.swift in Sources */,
-				84C664581DE9876400E8C00B /* MappingParser.swift in Sources */,
 				34E3381D1DE3FA570045861F /* Account.swift in Sources */,
 				34E3381F1DE3FA5B0045861F /* SystemInformation.swift in Sources */,
 				34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */,
