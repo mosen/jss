@@ -2,23 +2,20 @@ import Foundation
 
 let jssRealm = "Restful JSS Access -- Please supply your credentials"
 
-enum APIError : Error {
-    case InvalidURL
-    case NoResponse
-    case InvalidContentType(String)
+enum APIHTTPError : Error {
+    case BadRequest // 400
+    case AuthenticationFailed // 401
+    case AuthorizationFailed // 403
+    case NotFound // 404
+    case ValidationFailed // 409
+    case InternalError // 500
+    case Unknown(Int, Data?) // Any other HTTP error code
     
-    // Response contains non 2xx code, may contain a response body
-    case HTTP(Int, Data?)
-    case Serialization
+    case UnexpectedContentType // Server sent the wrong content - you should almost never see this
 }
 
-enum APIHTTPError : Error {
-    case BadRequest
-    case AuthenticationFailed
-    case AuthorizationFailed
-    case NotFound
-    case ValidationFailed
-    case InternalError
+enum APIError : Error {
+    case InvalidURL
 }
 
 class API : NSObject {
@@ -64,11 +61,27 @@ class API : NSObject {
             // Check HTTP response is what we expect.
             if let httpResponse = response as? HTTPURLResponse {
                 if let contentType = httpResponse.allHeaderFields["Content-Type"] as? String, contentType != "application/xml" {
-                    return completionHandler(data, response, APIError.InvalidContentType(contentType))
+                    return completionHandler(data, response, APIHTTPError.UnexpectedContentType)
                 }
                 
+                // PUT or POST should return 201, GET 200
                 if httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
-                    return completionHandler(data, response, APIError.HTTP(httpResponse.statusCode, data))
+                    switch httpResponse.statusCode {
+                    case 400:
+                        return completionHandler(data, response, APIHTTPError.BadRequest)
+                    case 401:
+                        return completionHandler(data, response, APIHTTPError.AuthenticationFailed)
+                    case 403:
+                        return completionHandler(data, response, APIHTTPError.AuthorizationFailed)
+                    case 404:
+                        return completionHandler(data, response, APIHTTPError.NotFound)
+                    case 409:
+                        return completionHandler(data, response, APIHTTPError.ValidationFailed)
+                    case 500:
+                        return completionHandler(data, response, APIHTTPError.InternalError)
+                    default:
+                        return completionHandler(data, response, APIHTTPError.Unknown(httpResponse.statusCode, data))
+                    }
                 }
             }
             
@@ -90,13 +103,30 @@ class API : NSObject {
             
             // Check HTTP response is what we expect.
             if let httpResponse = response as? HTTPURLResponse {
-                if let contentType = httpResponse.allHeaderFields["Content-Type"] as? String, contentType != "application/xml" {
-                    return completionHandler(data, response, APIError.InvalidContentType(contentType))
-                }
+
+                // NOTE: This has been temporarily removed because JSS errors ignore Accept: header and use HTML anyway
+                //                if let contentType = httpResponse.allHeaderFields["Content-Type"] as? String, contentType != "application/xml" {
+//                    return completionHandler(data, response, APIHTTPError.UnexpectedContentType)
+//                }
                 
                 // PUT or POST should return 201
                 if httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
-                    return completionHandler(data, response, APIError.HTTP(httpResponse.statusCode, data))
+                    switch httpResponse.statusCode {
+                    case 400:
+                        return completionHandler(data, response, APIHTTPError.BadRequest)
+                    case 401:
+                        return completionHandler(data, response, APIHTTPError.AuthenticationFailed)
+                    case 403:
+                        return completionHandler(data, response, APIHTTPError.AuthorizationFailed)
+                    case 404:
+                        return completionHandler(data, response, APIHTTPError.NotFound)
+                    case 409:
+                        return completionHandler(data, response, APIHTTPError.ValidationFailed)
+                    case 500:
+                        return completionHandler(data, response, APIHTTPError.InternalError)
+                    default:
+                        return completionHandler(data, response, APIHTTPError.Unknown(httpResponse.statusCode, data))
+                    }
                 }
             }
             

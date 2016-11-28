@@ -1,19 +1,17 @@
 import Foundation
 
-struct ActivationCode {
-    var organizationName: String
-    var code: String
+class ActivationCode : JSSResource {
+    var organizationName: String?
+    var code: String?
     
-    static func fromXML(root: XMLElement) -> ActivationCode? {
-        do {
-            let activationCodeEl = try root.nodes(forXPath: "/activation_code/code")[0]
-            let activationOrgEl = try root.nodes(forXPath: "/activation_code/organization_name")[0]
-            
-            let activationCode = ActivationCode(organizationName: activationOrgEl.stringValue!, code: activationCodeEl.stringValue!)
-            return activationCode
-        } catch {
-            return nil
-        }
+    override init() {
+        super.init()
+    }
+    
+    convenience init(organizationName: String, code: String) {
+        self.init()
+        self.organizationName = organizationName
+        self.code = code
     }
     
     func toXML() -> XMLDocument {

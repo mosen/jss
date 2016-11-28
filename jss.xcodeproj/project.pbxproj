@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		244A45EC1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45EB1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift */; };
+		244A45EE1DEBFEE3001596E5 /* DistributionPointStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45ED1DEBFEE3001596E5 /* DistributionPointStore.swift */; };
+		244A45F01DEC00B0001596E5 /* DistributionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45EF1DEC00B0001596E5 /* DistributionPoint.swift */; };
+		244A45F11DEC0398001596E5 /* DistributionPointStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45ED1DEBFEE3001596E5 /* DistributionPointStore.swift */; };
+		244A45F21DEC039B001596E5 /* DistributionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45EF1DEC00B0001596E5 /* DistributionPoint.swift */; };
+		244A45F41DEC0699001596E5 /* DistributionPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45F31DEC0699001596E5 /* DistributionPointTests.swift */; };
+		244A45F51DEC12AC001596E5 /* JSSXMLKeyedArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45EB1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift */; };
 		24B02A371DD48EB3001596E5 /* jssapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B02A351DD48EB3001596E5 /* jssapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24B02A3E1DD48EEA001596E5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3D1DD48EEA001596E5 /* Token.swift */; };
 		24B02A401DD48F32001596E5 /* UAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3F1DD48F32001596E5 /* UAPI.swift */; };
 		24B02A4E1DD496BA001596E5 /* jssapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B02A321DD48EB3001596E5 /* jssapi.framework */; };
 		24B02A551DD496CE001596E5 /* UAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3F1DD48F32001596E5 /* UAPI.swift */; };
 		24D66F661DD9BE2F001596E5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3D1DD48EEA001596E5 /* Token.swift */; };
+		24DC910B1DEBE537001596E5 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338191DE3F1A30045861F /* APITests.swift */; };
 		34E338171DE3ED6F0045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E338181DE3F1860045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490781DDB2AF700D1E523 /* ActivationCode.swift */; };
@@ -46,19 +54,10 @@
 		84C6645B1DEAD23800E8C00B /* MirrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664591DEAD23800E8C00B /* MirrorParser.swift */; };
 		84C6645E1DEAD95500E8C00B /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6645C1DEAD95500E8C00B /* ParserTests.swift */; };
 		84C6645F1DEADA0E00E8C00B /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6644E1DE819E400E8C00B /* Package.swift */; };
-		84C664671DEADE3D00E8C00B /* jssapiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664661DEADE3D00E8C00B /* jssapiTests.swift */; };
-		84C664691DEADE3D00E8C00B /* jssapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B02A321DD48EB3001596E5 /* jssapi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		24B02A4F1DD496BA001596E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24B02A291DD48EB3001596E5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 24B02A311DD48EB3001596E5;
-			remoteInfo = jssapi;
-		};
-		84C6646A1DEADE3D00E8C00B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24B02A291DD48EB3001596E5 /* Project object */;
 			proxyType = 1;
@@ -80,6 +79,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		244A45EB1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSXMLKeyedArchiver.swift; path = coders/JSSXMLKeyedArchiver.swift; sourceTree = "<group>"; };
+		244A45ED1DEBFEE3001596E5 /* DistributionPointStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistributionPointStore.swift; path = stores/DistributionPointStore.swift; sourceTree = "<group>"; };
+		244A45EF1DEC00B0001596E5 /* DistributionPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistributionPoint.swift; path = objects/DistributionPoint.swift; sourceTree = "<group>"; };
+		244A45F31DEC0699001596E5 /* DistributionPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributionPointTests.swift; sourceTree = "<group>"; };
 		24B02A321DD48EB3001596E5 /* jssapi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = jssapi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B02A351DD48EB3001596E5 /* jssapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jssapi.h; sourceTree = "<group>"; };
 		24B02A361DD48EB3001596E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,7 +111,6 @@
 		84C664531DE982D600E8C00B /* JSSResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSResource.swift; path = objects/JSSResource.swift; sourceTree = "<group>"; };
 		84C664591DEAD23800E8C00B /* MirrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MirrorParser.swift; path = parsers/MirrorParser.swift; sourceTree = "<group>"; };
 		84C6645C1DEAD95500E8C00B /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserTests.swift; path = jssapiTests/ParserTests.swift; sourceTree = SOURCE_ROOT; };
-		84C664641DEADE3D00E8C00B /* jssapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jssapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C664661DEADE3D00E8C00B /* jssapiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jssapiTests.swift; sourceTree = "<group>"; };
 		84C664681DEADE3D00E8C00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,17 +138,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84C664611DEADE3D00E8C00B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84C664691DEADE3D00E8C00B /* jssapi.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		244A45EA1DEBEEFC001596E5 /* coders */ = {
+			isa = PBXGroup;
+			children = (
+				244A45EB1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift */,
+			);
+			name = coders;
+			sourceTree = "<group>";
+		};
 		24B02A281DD48EB3001596E5 = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +167,6 @@
 				24B02A321DD48EB3001596E5 /* jssapi.framework */,
 				24B02A491DD496B9001596E5 /* jssTests.xctest */,
 				34E338301DE41E790045861F /* jss */,
-				84C664641DEADE3D00E8C00B /* jssapiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,6 +174,7 @@
 		24B02A341DD48EB3001596E5 /* jss */ = {
 			isa = PBXGroup;
 			children = (
+				244A45EA1DEBEEFC001596E5 /* coders */,
 				3405CCDB1DE567750086E806 /* parsers */,
 				34E338221DE40D280045861F /* stores */,
 				8404906B1DDB276B00D1E523 /* objects */,
@@ -193,6 +195,7 @@
 				24B02A411DD494A6001596E5 /* UAPITests.swift */,
 				34E338191DE3F1A30045861F /* APITests.swift */,
 				24B02A4D1DD496BA001596E5 /* Info.plist */,
+				244A45F31DEC0699001596E5 /* DistributionPointTests.swift */,
 			);
 			path = jssapiTests;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				34E338231DE40DC60045861F /* ActivationCodeStore.swift */,
 				34E338291DE414FE0045861F /* AccountsStore.swift */,
 				34E338251DE411340045861F /* JSSStore.swift */,
+				244A45ED1DEBFEE3001596E5 /* DistributionPointStore.swift */,
 			);
 			name = stores;
 			sourceTree = "<group>";
@@ -236,6 +240,7 @@
 				840490741DDB29D000D1E523 /* Site.swift */,
 				840490761DDB2A7600D1E523 /* Privileges.swift */,
 				840490781DDB2AF700D1E523 /* ActivationCode.swift */,
+				244A45EF1DEC00B0001596E5 /* DistributionPoint.swift */,
 			);
 			name = objects;
 			sourceTree = "<group>";
@@ -316,24 +321,6 @@
 			productReference = 34E338301DE41E790045861F /* jss */;
 			productType = "com.apple.product-type.tool";
 		};
-		84C664631DEADE3D00E8C00B /* jssapiTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84C6646C1DEADE3D00E8C00B /* Build configuration list for PBXNativeTarget "jssapiTests" */;
-			buildPhases = (
-				84C664601DEADE3D00E8C00B /* Sources */,
-				84C664611DEADE3D00E8C00B /* Frameworks */,
-				84C664621DEADE3D00E8C00B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				84C6646B1DEADE3D00E8C00B /* PBXTargetDependency */,
-			);
-			name = jssapiTests;
-			productName = jssapiTests;
-			productReference = 84C664641DEADE3D00E8C00B /* jssapiTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -357,10 +344,6 @@
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
-					84C664631DEADE3D00E8C00B = {
-						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 24B02A2C1DD48EB3001596E5 /* Build configuration list for PBXProject "jss" */;
@@ -378,7 +361,6 @@
 				24B02A311DD48EB3001596E5 /* jssapi */,
 				24B02A481DD496B9001596E5 /* jssTests */,
 				34E3382F1DE41E790045861F /* jss */,
-				84C664631DEADE3D00E8C00B /* jssapiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -399,13 +381,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84C664621DEADE3D00E8C00B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -413,12 +388,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244A45EE1DEBFEE3001596E5 /* DistributionPointStore.swift in Sources */,
 				840490751DDB29D000D1E523 /* Site.swift in Sources */,
 				84C6645A1DEAD23800E8C00B /* MirrorParser.swift in Sources */,
 				34E338241DE40DC60045861F /* ActivationCodeStore.swift in Sources */,
+				244A45F01DEC00B0001596E5 /* DistributionPoint.swift in Sources */,
 				84C664541DE982D600E8C00B /* JSSResource.swift in Sources */,
 				24B02A401DD48F32001596E5 /* UAPI.swift in Sources */,
 				8404906D1DDB278200D1E523 /* Building.swift in Sources */,
+				244A45EC1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift in Sources */,
 				840490711DDB286200D1E523 /* SystemInformation.swift in Sources */,
 				34E338171DE3ED6F0045861F /* API.swift in Sources */,
 				84C664511DE932F300E8C00B /* PackageStore.swift in Sources */,
@@ -439,19 +417,24 @@
 			files = (
 				34E3381C1DE3FA550045861F /* Privileges.swift in Sources */,
 				84C6645B1DEAD23800E8C00B /* MirrorParser.swift in Sources */,
+				244A45F11DEC0398001596E5 /* DistributionPointStore.swift in Sources */,
 				24B02A551DD496CE001596E5 /* UAPI.swift in Sources */,
 				84C6645F1DEADA0E00E8C00B /* Package.swift in Sources */,
 				84C664551DE982D600E8C00B /* JSSResource.swift in Sources */,
 				34E338181DE3F1860045861F /* API.swift in Sources */,
 				34E3381E1DE3FA590045861F /* Site.swift in Sources */,
 				34E338281DE4132E0045861F /* JSSStore.swift in Sources */,
+				24DC910B1DEBE537001596E5 /* APITests.swift in Sources */,
 				84C664521DE932F300E8C00B /* PackageStore.swift in Sources */,
 				24D66F661DD9BE2F001596E5 /* Token.swift in Sources */,
 				34E338201DE3FA5D0045861F /* Department.swift in Sources */,
+				244A45F51DEC12AC001596E5 /* JSSXMLKeyedArchiver.swift in Sources */,
 				34E338211DE3FA5E0045861F /* Building.swift in Sources */,
 				84C6645E1DEAD95500E8C00B /* ParserTests.swift in Sources */,
 				34E3381D1DE3FA570045861F /* Account.swift in Sources */,
+				244A45F21DEC039B001596E5 /* DistributionPoint.swift in Sources */,
 				34E3381F1DE3FA5B0045861F /* SystemInformation.swift in Sources */,
+				244A45F41DEC0699001596E5 /* DistributionPointTests.swift in Sources */,
 				34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */,
 				34E3382B1DE414FE0045861F /* AccountsStore.swift in Sources */,
 				34E338271DE4132B0045861F /* ActivationCodeStore.swift in Sources */,
@@ -466,14 +449,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84C664601DEADE3D00E8C00B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84C664671DEADE3D00E8C00B /* jssapiTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -481,11 +456,6 @@
 			isa = PBXTargetDependency;
 			target = 24B02A311DD48EB3001596E5 /* jssapi */;
 			targetProxy = 24B02A4F1DD496BA001596E5 /* PBXContainerItemProxy */;
-		};
-		84C6646B1DEADE3D00E8C00B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 24B02A311DD48EB3001596E5 /* jssapi */;
-			targetProxy = 84C6646A1DEADE3D00E8C00B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -531,7 +501,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -577,7 +547,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -669,30 +639,6 @@
 			};
 			name = Release;
 		};
-		84C6646D1DEADE3D00E8C00B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = jssapiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.mosen.jssapiTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		84C6646E1DEADE3D00E8C00B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = jssapiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.mosen.jssapiTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -731,14 +677,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		84C6646C1DEADE3D00E8C00B /* Build configuration list for PBXNativeTarget "jssapiTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84C6646D1DEADE3D00E8C00B /* Debug */,
-				84C6646E1DEADE3D00E8C00B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

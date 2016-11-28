@@ -11,19 +11,16 @@ class APITests: XCTestCase {
         
         do {
             let api = try API(url: url, credential: credential)
-            let store = ActivationCodeStore(api: api)
+            let store = ActivationCodeStore(api: api, path: "/JSSResource/activationcode")
             
             store.get() {
                 (code, error) in
                 XCTAssertNotNil(code)
                 
                 if let err = error {
-                    switch err {
-                    case let APIError.HTTP(statusCode, body):
-                        XCTFail("got http error, code: \(statusCode)")
-                    default:
+
                         XCTFail("got some error")
-                    }
+
                     
                     expectation.fulfill()
                 }
@@ -55,18 +52,13 @@ class APITests: XCTestCase {
         
         do {
             let api = try API(url: url, credential: credential)
-            let store = ActivationCodeStore(api: api)
+            let store = ActivationCodeStore(api: api, path:"/JSSResource/activationcode")
             
             store.put(code: code) {
                 (success, error) in
                 XCTAssertTrue(success)
                 if let err = error {
-                    switch err {
-                    case let APIError.HTTP(statusCode, _):
-                        XCTFail("got http error, code: \(statusCode)")
-                    default:
-                        XCTFail("got some error")
-                    }
+                     XCTFail("got some error")
                 }
                 
                 expectation.fulfill()
@@ -89,7 +81,7 @@ class APITests: XCTestCase {
         
         do {
             let api = try API(url: url, credential: credential)
-            let store = AccountsStore(api: api)
+            let store = AccountsStore(api: api, path: "/JSSResource/accounts")
             
             store.find(id: 1) {
                 (account, error) in
@@ -101,7 +93,7 @@ class APITests: XCTestCase {
                 }
                 
                 if let acct = account {
-                    print(acct)
+                    dump(acct)
                     expectation.fulfill()
                 }
                 
@@ -118,5 +110,7 @@ class APITests: XCTestCase {
             }
         }
     }
+    
+
 
 }

@@ -24,7 +24,7 @@ class MirrorParser : NSObject, XMLParserDelegate {
     var currentText: String?
     var ignoreCurrent: Bool = false
     
-    init(subject: AnyObject) {
+    init(reflecting subject: AnyObject) {
         self.subject = subject
         self.mirror = Mirror(reflecting: subject)
         
@@ -58,9 +58,7 @@ class MirrorParser : NSObject, XMLParserDelegate {
                 let val = self.subject.value(forKey: objectKey)
                 
                 switch val {
-                case is String?:
-                    fallthrough
-                case is String:
+                case is String?, is String:
                     self.subject.setValue(self.currentText, forKey: objectKey)
                 case is Int:
                     if let text = self.currentText {
@@ -68,8 +66,18 @@ class MirrorParser : NSObject, XMLParserDelegate {
                         self.subject.setValue(currentInt, forKey: objectKey)
                     }
                 case is Bool:
-                    let currentBool = self.currentText?.caseInsensitiveCompare("true") == NSComparisonResult.
+                    let currentBool = self.currentText?.caseInsensitiveCompare("true") == .orderedSame
                     self.subject.setValue(currentBool, forKey: objectKey)
+                // KVC seems broken for URL type
+                case is URL?:
+                    fallthrough
+                case is URL:
+                    print("Testing URL type")
+                    if let currentText = self.currentText {
+                        let currentUrl = URL(string: currentText)!
+                        print(currentUrl.absoluteString)
+                        //self.subject.setValue(currentUrl, forKey: objectKey)
+                    }
                 default:
                     print("Unhandled type for key \(objectKey)")
                 }

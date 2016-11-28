@@ -39,10 +39,15 @@ class ParserTests: XCTestCase {
     
     func testMirrorParser() {
         let parser = XMLParser(data: self.packageXml.data(using: .utf8)!)
-        let parserDelegate = MirrorParser(subject: self.package)
+        let parserDelegate = MirrorParser(reflecting: self.package)
         parser.delegate = parserDelegate
 
         parser.parse()
         dump(self.package)
+    }
+    
+    func testXMLCoder() {
+        let xml = JSSXMLKeyedArchiver.archivedXML(withRootObject: self.package, rootTag: "package")
+        print(xml.xmlString)
     }
 }

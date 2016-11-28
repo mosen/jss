@@ -7,23 +7,23 @@ struct AccountPreferences {
     var timezone: String?
 }
 
-class Account {
-    var id: Int? = nil
-    var username: String? = nil
+class Account : JSSResource {
+    var id: Int = -1
+    var name: String? = nil
     var fullName: String? = nil
-    var directoryUser: Bool? = nil
+    var directoryUser: Bool = false
     var email: String? = nil
+    var passwordSha256: String? = nil
     var preferences: AccountPreferences? = nil
     // var isMultiSiteAdmin: Bool
     var accessLevel: String? = nil
     var privilegeSet: String? = nil
-    var privileges: Set<ReconPrivileges>? = nil
-    var groupIds: [Int]? = nil
+    //var privileges: Set<ReconPrivileges>? = nil
+    var groupIds: [Int]? = []
     var currentSiteId: Int? = nil
-    var passwordHash: String? = nil
     
-    init() {
-        
+    override init() {
+        super.init()
     }
     
 //    static func fromXML(root: XMLElement) -> Account? {

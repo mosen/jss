@@ -15,17 +15,39 @@ class PackageStore : JSSStore {
                 completionHandler(nil, err)
             }
             
-//            if let content = data {
-//                do {
-//                    let parser = XMLParser(data: content)
-//                    
-//                }
-//            } else {
-//                
-//            }
+            if let content = data {
+                let parser = XMLParser(data: content)
+                var packages: Array<Package> = []
+                
+            } else {
+                
+            }
         }
     }
     
-    func get(id: Int) {
+    func find(id: Int, completionHandler: @escaping (Package?, Error?) -> Void) {
+        let url = self.api.url.appendingPathComponent("/JSSResource/packages/id/\(id)")
+        let request = URLRequest(url: url)
+        
+        self.api.fetchXML(request: request) {
+            (data, response, error) in
+            
+            if let err = error {
+                completionHandler(nil, err)
+            }
+            
+            if let content = data {
+                let parser = XMLParser(data: content)
+                let package = Package()
+                let mirrorParser = MirrorParser(reflecting: package)
+                parser.delegate = mirrorParser
+                
+                parser.parse()
+                
+                completionHandler(package, nil)
+            } else {
+                
+            }
+        }
     }
 }

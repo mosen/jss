@@ -1,7 +1,7 @@
 import Foundation
 
-struct Building {
-    var id: Int?
+class Building : JSSResource {
+    var id: Int = -1
     var name: String?
     var streetAddress1: String?
     var streetAddress2: String?
