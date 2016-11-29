@@ -3,6 +3,15 @@ import Foundation
 
 class Package : JSSResource, NSCoding {
     
+    static let resourcePaths : [ResourcePaths:String] = [
+        ResourcePaths.FindById : "/JSSResource/packages/id/",
+        ResourcePaths.FindByName: "/JSSResource/packages/name/",
+        ResourcePaths.FindAll: "/JSSResource/packages",
+        ResourcePaths.CreateById: "/JSSResource/packages/id/0",
+        ResourcePaths.UpdateById: "/JSSResource/packages/id/",
+        ResourcePaths.DeleteById: "/JSSResource/packages/id/",
+    ]
+    
     var id: Int = 0
     
     // General
@@ -31,7 +40,7 @@ class Package : JSSResource, NSCoding {
     var reinstallOption: String?
     var sendNotification: Bool = false
     
-    override init() {
+    required init() {
         super.init()
     }
     

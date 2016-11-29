@@ -1,6 +1,16 @@
 import Foundation
 
 class DistributionPoint : JSSResource, NSCoding {
+    
+    static let resourcePaths : [ResourcePaths:String] = [
+        ResourcePaths.FindById : "/JSSResource/distributionpoints/id/",
+        ResourcePaths.FindByName: "/JSSResource/distributionpoints/name/",
+        ResourcePaths.FindAll: "/JSSResource/distributionpoints",
+        ResourcePaths.CreateById: "/JSSResource/distributionpoints/id/0",
+        ResourcePaths.DeleteById: "/JSSResource/distributionpoints/id/",
+        ResourcePaths.UpdateById: "/JSSResource/distributionpoints/id/",
+    ]
+    
     var id: Int = 0
     
     // General
@@ -90,8 +100,9 @@ class DistributionPoint : JSSResource, NSCoding {
 //        aCoder.encode(self.certificate, forKey:"certificate")
     }
     
-    override init() {
-        
+    required init() {
+        super.init()
+        self.rootTag = "distribution_point"
     }
     
     // Don't care about decoding

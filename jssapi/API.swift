@@ -3,7 +3,7 @@ import Foundation
 let jssRealm = "Restful JSS Access -- Please supply your credentials"
 
 enum APIHTTPError : Error {
-    case BadRequest // 400
+    case BadRequest(Data?) // 400
     case AuthenticationFailed // 401
     case AuthorizationFailed // 403
     case NotFound // 404
@@ -61,15 +61,16 @@ class API : NSObject {
             
             // Check HTTP response is what we expect.
             if let httpResponse = response as? HTTPURLResponse {
-                if let contentType = httpResponse.allHeaderFields["Content-Type"] as? String, contentType != "application/xml" {
-                    return completionHandler(data, response, APIHTTPError.UnexpectedContentType)
-                }
+                // NOTE: This has been temporarily removed because JSS errors ignore Accept: header and use HTML anyway
+//                if let contentType = httpResponse.allHeaderFields["Content-Type"] as? String, contentType != "application/xml" {
+//                    return completionHandler(data, response, APIHTTPError.UnexpectedContentType)
+//                }
                 
                 // PUT or POST should return 201, GET 200
                 if httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
                     switch httpResponse.statusCode {
                     case 400:
-                        return completionHandler(data, response, APIHTTPError.BadRequest)
+                        return completionHandler(data, response, APIHTTPError.BadRequest(data))
                     case 401:
                         return completionHandler(data, response, APIHTTPError.AuthenticationFailed)
                     case 403:
@@ -93,12 +94,6 @@ class API : NSObject {
     }
     
     func postXML(request: URLRequest, xml: XMLDocument, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-//        let defaultConfig = URLSessionConfiguration.default
-//        defaultConfig.httpAdditionalHeaders = [
-//            "Content-Type": "text/xml",
-//            "Accept": "text/xml"
-//        ]
-        
         let session = URLSession(configuration: self.sessionConfig)
         
         let task = session.uploadTask(with: request, from: xml.xmlData) {
@@ -120,7 +115,7 @@ class API : NSObject {
                 if httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
                     switch httpResponse.statusCode {
                     case 400:
-                        return completionHandler(data, response, APIHTTPError.BadRequest)
+                        return completionHandler(data, response, APIHTTPError.BadRequest(data))
                     case 401:
                         return completionHandler(data, response, APIHTTPError.AuthenticationFailed)
                     case 403:

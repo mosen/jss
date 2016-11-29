@@ -2,6 +2,8 @@ import Foundation
 
 class DistributionPointStore : JSSStore {
 
+
+    
     /**
       Get a list of all distribution points.
     */
@@ -28,7 +30,7 @@ class DistributionPointStore : JSSStore {
       Find a distribution point by its ID.
     */
     func find(id: Int, completionHandler: @escaping (DistributionPoint?, Error?) -> Void) {
-        let url = self.api.url.appendingPathComponent("/JSSResource/distributionpoints/id/\(id)")
+        let url = self.api.url.appendingPathComponent(DistributionPoint.resourcePaths[ResourcePaths.FindById]!)
         let request = URLRequest(url: url)
         
         self.api.fetchXML(request: request) {
@@ -95,14 +97,14 @@ class DistributionPointStore : JSSStore {
             
             if let body = data {
                 do {
-                    let xmlDoc = XMLDocument(data)
+                    let xmlDoc = try XMLDocument(data: body, options: 0)
                     let packageIdEl = try xmlDoc.rootElement()?.nodes(forXPath: "/package/id")
 
-                    if packageIdEl.count == 0 {
+                    if packageIdEl?.count == 0 {
                         return completionHandler(nil, StoreError.EmptyContent)
                     }
 
-                    if let packageIdStr = packageIdEl[0].stringValue {
+                    if let packageIdStr = packageIdEl?[0].stringValue {
                         let packageId = Int(packageIdStr, radix: 0)
                         return completionHandler(packageId, nil)
                     }

@@ -1,16 +1,17 @@
 import Foundation
 
-enum StoreError : Error {
-    case Serialization
-    case EmptyContent
-}
+
+
+
 
 class JSSStore {
     let api: API
-    let url: URL
+    var paths: Dictionary<ResourcePaths,String> = [:]
     
-    init(api: API, path: String) {
+    init(api: API, paths: Dictionary<ResourcePaths,String>?) {
         self.api = api
-        self.url = self.api.url.appendingPathComponent(path)
+        if let pathsv = paths {
+            self.paths = pathsv
+        }
     }
 }

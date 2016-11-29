@@ -19,7 +19,7 @@ class DistributionPointTests: XCTestCase {
         let expectation = self.expectation(description: "Create Distribution Point By Name 'fixture'")
         do {
             let api = try API(url: url, credential: credential)
-            let store = DistributionPointStore(api: api, path: "/JSSResource/distributionpoints")
+            let store: GenericStore<DistributionPoint> = GenericStore(api: api, paths: DistributionPoint.resourcePaths)
             let dp = DistributionPoint()
             dp.name = "fixture"
             dp.ipAddress = "localhost"
@@ -34,14 +34,18 @@ class DistributionPointTests: XCTestCase {
             
             store.create(dp) {
                 (updated, error) in
+                expectation.fulfill()
                 
                 if let err = error {
                     switch err {
+                    case APIHTTPError.BadRequest:
+                        print("BAD REQ")
                     case APIHTTPError.Unknown(_, let content):
                         print(String(data: content!, encoding: .utf8))
                     default: break
                     }
             
+                    
                     XCTFail("Did not get a distribution point: \(err.localizedDescription)")
                 }
                 
@@ -73,7 +77,7 @@ class DistributionPointTests: XCTestCase {
         
         do {
             let api = try API(url: url, credential: credential)
-            let store = DistributionPointStore(api: api, path: "/JSSResource/distributionpoints")
+            let store: GenericStore<DistributionPoint> = GenericStore(api: api, paths: DistributionPoint.resourcePaths)
             
             store.find(id: 1) {
                 (dp, error) in

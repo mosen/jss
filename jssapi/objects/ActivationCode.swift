@@ -1,11 +1,18 @@
 import Foundation
 
-class ActivationCode : JSSResource {
+class ActivationCode : JSSResource, NSCoding {
+    
+    static let resourcePaths : [ResourcePaths:String] = [
+        ResourcePaths.GetSingleton: "/JSSResource/activationcode",
+        ResourcePaths.PutSingleton: "/JSSResource/activationcode",
+    ]
+    
     var organizationName: String?
     var code: String?
     
-    override init() {
+    required init() {
         super.init()
+        self.rootTag = "activation_code"
     }
     
     convenience init(organizationName: String, code: String) {
@@ -14,18 +21,14 @@ class ActivationCode : JSSResource {
         self.code = code
     }
     
-    func toXML() -> XMLDocument {
-        let doc = XMLDocument()
-        let root = XMLElement(name: "activation_code")
-        
-        let org = XMLElement(name: "organization_name", stringValue: self.organizationName)
-        let code = XMLElement(name: "code", stringValue: self.code)
-        
-        root.addChild(org)
-        root.addChild(code)
-        
-        doc.setRootElement(root)
-        
-        return doc
+    // MARK:- NSCoding
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.organizationName, forKey: "organization_name")
+        aCoder.encode(self.code, forKey: "code")
+    }
+    
+    // Don't care about decoding
+    convenience required init?(coder aDecoder: NSCoder) {
+        self.init()
     }
 }

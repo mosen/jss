@@ -1,7 +1,7 @@
 import XCTest
 
-class PackageTests: XCTestCase {
-
+class GenericStoreTests: XCTestCase {
+    
     let url: URL = URL(string: "https://localhost:8444")!
     let credential: URLCredential = URLCredential(user: "admin", password: "pa$$w0rd", persistence: .forSession)
     
@@ -15,36 +15,29 @@ class PackageTests: XCTestCase {
         super.tearDown()
     }
 
-    func testCreatePackage() {
-        let expectation = self.expectation(description: "URLSessionDataTask Returns")
+
+    func testGenericFindById() {
+        let expectation = self.expectation(description: "URL DataTask")
         
         do {
             let api = try API(url: url, credential: credential)
-            let store : GenericStore<Package> = GenericStore(api: api, paths: Package.resourcePaths)
-            let pkg = Package()
-            pkg.name = "fixture package"
-            pkg.filename = "Fixture.dmg"
-            
-            store.create(pkg) {
-                (id, error) in
-                
-                if let err = error as? APIHTTPError {
-                    switch err {
-                    case .BadRequest(let body):
-                        dump(String(data: body!, encoding: .utf8))
-                        XCTFail("Bad Request")
-                    default:
-                        XCTFail("HTTP Error")
-                    }
-                }
+            let store : GenericStore<DistributionPoint> = GenericStore(api: api, paths: DistributionPoint.resourcePaths)
+            store.find(id: 1) {
+                (distributionPoint, error) in
                 
                 XCTAssertNil(error)
-                XCTAssertNotNil(id)
-                expectation.fulfill()
+                
+                if let err = error {
+                    XCTFail("Got an error: \(err.localizedDescription)")
+                    expectation.fulfill()
+                } else {
+                    XCTAssertNotNil(distributionPoint)
+                    expectation.fulfill()
+                }
             }
         } catch {
-            XCTFail()
             expectation.fulfill()
+            XCTFail(error.localizedDescription)
         }
         
         self.waitForExpectations(timeout: 5) {
@@ -54,6 +47,5 @@ class PackageTests: XCTestCase {
             }
         }
     }
-
 
 }
