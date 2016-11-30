@@ -1,9 +1,6 @@
 import XCTest
 
-class GenericStoreTests: XCTestCase {
-    
-    let url: URL = URL(string: "https://localhost:8444")!
-    let credential: URLCredential = URLCredential(user: "admin", password: "pa$$w0rd", persistence: .forSession)
+class GenericStoreTests: APITestCase {
     
     override func setUp() {
         super.setUp()

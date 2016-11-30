@@ -1,9 +1,6 @@
 import XCTest
 
-class ActivationCodeTests: XCTestCase {
-
-    let url: URL = URL(string: "https://localhost:8444")!
-    let credential: URLCredential = URLCredential(user: "admin", password: "pa$$w0rd", persistence: .forSession)
+class ActivationCodeTests: APITestCase {
     
     func testGetActivationCode() {
         let expectation = self.expectation(description: "URLSessionDataTask Returns")

@@ -1,9 +1,6 @@
 import XCTest
 
-class PackageTests: XCTestCase {
-
-    let url: URL = URL(string: "https://localhost:8444")!
-    let credential: URLCredential = URLCredential(user: "admin", password: "pa$$w0rd", persistence: .forSession)
+class PackageTests: APITestCase {
     
     override func setUp() {
         super.setUp()

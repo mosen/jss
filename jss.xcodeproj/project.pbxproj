@@ -56,6 +56,8 @@
 		840490751DDB29D000D1E523 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490741DDB29D000D1E523 /* Site.swift */; };
 		840490771DDB2A7600D1E523 /* Privileges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490761DDB2A7600D1E523 /* Privileges.swift */; };
 		840490791DDB2AF700D1E523 /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490781DDB2AF700D1E523 /* ActivationCode.swift */; };
+		84800FC81DEEC7BB001B4BC0 /* BuildingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84800FC71DEEC7BB001B4BC0 /* BuildingTests.swift */; };
+		84800FCA1DEEC7DC001B4BC0 /* APITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84800FC91DEEC7DC001B4BC0 /* APITestCase.swift */; };
 		84C6644D1DE59A6900E8C00B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 84C6644C1DE59A6900E8C00B /* .gitignore */; };
 		84C6644F1DE819E500E8C00B /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6644E1DE819E400E8C00B /* Package.swift */; };
 		84C664541DE982D600E8C00B /* JSSResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C664531DE982D600E8C00B /* JSSResource.swift */; };
@@ -109,6 +111,8 @@
 		840490741DDB29D000D1E523 /* Site.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		840490761DDB2A7600D1E523 /* Privileges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Privileges.swift; sourceTree = "<group>"; };
 		840490781DDB2AF700D1E523 /* ActivationCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivationCode.swift; path = objects/ActivationCode.swift; sourceTree = "<group>"; };
+		84800FC71DEEC7BB001B4BC0 /* BuildingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingTests.swift; sourceTree = "<group>"; };
+		84800FC91DEEC7DC001B4BC0 /* APITestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITestCase.swift; sourceTree = "<group>"; };
 		84C6644C1DE59A6900E8C00B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		84C6644E1DE819E400E8C00B /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = jssapi/objects/Package.swift; sourceTree = SOURCE_ROOT; };
 		84C664531DE982D600E8C00B /* JSSResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSResource.swift; path = objects/JSSResource.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				24B02A4D1DD496BA001596E5 /* Info.plist */,
 				244A45F31DEC0699001596E5 /* DistributionPointTests.swift */,
 				244A45F81DED2E1E001596E5 /* GenericStoreTests.swift */,
+				84800FC71DEEC7BB001B4BC0 /* BuildingTests.swift */,
+				84800FC91DEEC7DC001B4BC0 /* APITestCase.swift */,
 			);
 			path = jssapiTests;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 			files = (
 				244A45F91DED2E1E001596E5 /* GenericStoreTests.swift in Sources */,
 				34E3381C1DE3FA550045861F /* Privileges.swift in Sources */,
+				84800FCA1DEEC7DC001B4BC0 /* APITestCase.swift in Sources */,
 				84C6645B1DEAD23800E8C00B /* MirrorParser.swift in Sources */,
 				34395D1F1DEE75D9006DE032 /* SelfService.swift in Sources */,
 				34395D211DEE7905006DE032 /* CoderTests.swift in Sources */,
@@ -415,6 +422,7 @@
 				244A45F71DEC4C91001596E5 /* PackageTests.swift in Sources */,
 				34E338201DE3FA5D0045861F /* Department.swift in Sources */,
 				244A45F51DEC12AC001596E5 /* JSSXMLKeyedArchiver.swift in Sources */,
+				84800FC81DEEC7BB001B4BC0 /* BuildingTests.swift in Sources */,
 				34E338211DE3FA5E0045861F /* Building.swift in Sources */,
 				84C6645E1DEAD95500E8C00B /* ParserTests.swift in Sources */,
 				34395D241DEEAACD006DE032 /* LDAPServer.swift in Sources */,
