@@ -16,6 +16,7 @@ enum ResourcePaths {
     case CreateByName // "/JSSResource/objects/name/xyz"
     case UpdateById // "/JSSResource/objects/id/x"
     case DeleteById // "/JSSResource/objects/id/x"
+    case FindByCategory // "/JSSResource/objects/category/{name}"
 }
 
 // GenericStore implements a REST interface for every object type in the JSS using Generics

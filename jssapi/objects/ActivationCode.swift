@@ -1,6 +1,6 @@
 import Foundation
 
-class ActivationCode : JSSResource, NSCoding {
+class ActivationCode : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.GetSingleton: "/JSSResource/activationcode",
@@ -22,7 +22,7 @@ class ActivationCode : JSSResource, NSCoding {
     }
     
     // MARK:- NSCoding
-    func encode(with aCoder: NSCoder) {
+    override func encode(with aCoder: NSCoder) {
         aCoder.encode(self.organizationName, forKey: "organization_name")
         aCoder.encode(self.code, forKey: "code")
     }

@@ -5,27 +5,23 @@ class JSSXMLKeyedArchiver: NSCoder {
     let doc: XMLDocument
     var root: XMLElement?
     var rootTag: String?
+    var current: XMLElement?
     var translationMap: [String:String] = [:]
     
     init(document: XMLDocument) {
         self.doc = document
     }
     
-    class func archivedXML(withRootObject rootObject: Any, rootTag tag: String?) -> XMLDocument {
-        var xmlDoc = XMLDocument()
+    class func archivedXML(withRootObject rootObject: NSCoding, rootTag tag: String?) -> XMLDocument {
+        let xmlDoc = XMLDocument()
         xmlDoc.version = "1.0"
         xmlDoc.characterEncoding = "UTF-8"
         
         let jssArchiver = JSSXMLKeyedArchiver(document: xmlDoc)
         
         jssArchiver.rootTag = tag
-        
         jssArchiver.encodeRootObject(rootObject)
-        if let coderRootObject = rootObject as? NSCoding {
-            coderRootObject.encode(with: jssArchiver)
-        } else {
-            print("object does not use NSCoding")
-        }
+        rootObject.encode(with: jssArchiver)
         
         return xmlDoc
     }
@@ -64,6 +60,7 @@ class JSSXMLKeyedArchiver: NSCoder {
         }
 
         self.doc.setRootElement(rootElement)
+        self.current = rootElement
     }
     
     // MARK:- Keyed Coding
@@ -100,9 +97,25 @@ class JSSXMLKeyedArchiver: NSCoder {
         print("Encoding object for key \(key)")
         
         switch objv {
-        case is String?:
-            let element = XMLElement(name: key, stringValue: objv as? String)
-            self.doc.rootElement()?.addChild(element)
+        case (let objvStr as String?):
+            let element = XMLElement(name: key, stringValue: objvStr)
+            self.current?.addChild(element)
+        case (let objvStr as String):
+            let element = XMLElement(name: key, stringValue: objvStr)
+            self.current?.addChild(element)
+        case (let objvCoding as NSCoding):
+            
+            let parent = self.current
+            
+            let element = XMLElement(name: key)
+            self.current = element
+            objvCoding.encode(with: self)
+            
+            if let current = self.current {
+                parent?.addChild(current)
+            }
+            
+            self.current = parent
         default:
             print("Unhandled type for key: \(key)")
         }
@@ -111,6 +124,12 @@ class JSSXMLKeyedArchiver: NSCoder {
     override func encode(_ intv: Int, forKey key: String) {
         let strValue = String(intv)
         self.doc.rootElement()?.addChild(XMLElement(name: key, stringValue: strValue))
+    }
+    
+    override func encodeBytes(_ bytesp: UnsafePointer<UInt8>?, length lenv: Int, forKey key: String) {
+        let strValue = String(cString: bytesp!)
+        
+        self.current?.stringValue = strValue
     }
     
     // MARK:- NSKeyedArchiver Simulation

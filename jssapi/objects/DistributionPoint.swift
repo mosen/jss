@@ -1,6 +1,6 @@
 import Foundation
 
-class DistributionPoint : JSSResource, NSCoding {
+class DistributionPoint : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/distributionpoints/id/",
@@ -66,7 +66,7 @@ class DistributionPoint : JSSResource, NSCoding {
     var sshPasswordSha256: String? = nil
     
     // MARK:- NSCoding
-    func encode(with aCoder: NSCoder) {
+    override func encode(with aCoder: NSCoder) {
         // General
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")

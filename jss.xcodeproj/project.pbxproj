@@ -25,6 +25,19 @@
 		24B02A4E1DD496BA001596E5 /* jssapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B02A321DD48EB3001596E5 /* jssapi.framework */; };
 		24B02A551DD496CE001596E5 /* UAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3F1DD48F32001596E5 /* UAPI.swift */; };
 		24D66F661DD9BE2F001596E5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3D1DD48EEA001596E5 /* Token.swift */; };
+		34395D111DEE69C0006DE032 /* SMTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D101DEE69C0006DE032 /* SMTPServer.swift */; };
+		34395D121DEE69C0006DE032 /* SMTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D101DEE69C0006DE032 /* SMTPServer.swift */; };
+		34395D141DEE6DB8006DE032 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D131DEE6DB8006DE032 /* Policy.swift */; };
+		34395D151DEE6DB8006DE032 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D131DEE6DB8006DE032 /* Policy.swift */; };
+		34395D171DEE6FF6006DE032 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D161DEE6FF6006DE032 /* Category.swift */; };
+		34395D181DEE6FF6006DE032 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D161DEE6FF6006DE032 /* Category.swift */; };
+		34395D1B1DEE747F006DE032 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D1A1DEE747F006DE032 /* Maintenance.swift */; };
+		34395D1C1DEE747F006DE032 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D1A1DEE747F006DE032 /* Maintenance.swift */; };
+		34395D1E1DEE75D9006DE032 /* SelfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D1D1DEE75D9006DE032 /* SelfService.swift */; };
+		34395D1F1DEE75D9006DE032 /* SelfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D1D1DEE75D9006DE032 /* SelfService.swift */; };
+		34395D211DEE7905006DE032 /* CoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D201DEE7905006DE032 /* CoderTests.swift */; };
+		34395D231DEEAACD006DE032 /* LDAPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D221DEEAACD006DE032 /* LDAPServer.swift */; };
+		34395D241DEEAACD006DE032 /* LDAPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34395D221DEEAACD006DE032 /* LDAPServer.swift */; };
 		34E338171DE3ED6F0045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E338181DE3F1860045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490781DDB2AF700D1E523 /* ActivationCode.swift */; };
@@ -80,6 +93,13 @@
 		24B02A411DD494A6001596E5 /* UAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UAPITests.swift; path = ../jssapi/UAPITests.swift; sourceTree = "<group>"; };
 		24B02A491DD496B9001596E5 /* jssTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jssTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B02A4D1DD496BA001596E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34395D101DEE69C0006DE032 /* SMTPServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMTPServer.swift; path = objects/SMTPServer.swift; sourceTree = "<group>"; };
+		34395D131DEE6DB8006DE032 /* Policy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Policy.swift; path = objects/Policy.swift; sourceTree = "<group>"; };
+		34395D161DEE6FF6006DE032 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = objects/Category.swift; sourceTree = "<group>"; };
+		34395D1A1DEE747F006DE032 /* Maintenance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Maintenance.swift; path = objects/policy/Maintenance.swift; sourceTree = "<group>"; };
+		34395D1D1DEE75D9006DE032 /* SelfService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelfService.swift; path = objects/policy/SelfService.swift; sourceTree = "<group>"; };
+		34395D201DEE7905006DE032 /* CoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoderTests.swift; path = jssapiTests/CoderTests.swift; sourceTree = SOURCE_ROOT; };
+		34395D221DEEAACD006DE032 /* LDAPServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LDAPServer.swift; path = objects/LDAPServer.swift; sourceTree = "<group>"; };
 		34E338161DE3ED6F0045861F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		34E338251DE411340045861F /* JSSStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSStore.swift; path = stores/JSSStore.swift; sourceTree = "<group>"; };
 		8404906C1DDB278200D1E523 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Building.swift; path = objects/Building.swift; sourceTree = "<group>"; };
@@ -170,6 +190,7 @@
 		24B02A4A1DD496B9001596E5 /* jssapiTests */ = {
 			isa = PBXGroup;
 			children = (
+				34395D201DEE7905006DE032 /* CoderTests.swift */,
 				84C6645C1DEAD95500E8C00B /* ParserTests.swift */,
 				24B02A411DD494A6001596E5 /* UAPITests.swift */,
 				244A45FD1DED6A46001596E5 /* ActivationCodeTests.swift */,
@@ -189,6 +210,16 @@
 			name = parsers;
 			sourceTree = "<group>";
 		};
+		34395D191DEE745C006DE032 /* policy */ = {
+			isa = PBXGroup;
+			children = (
+				34395D131DEE6DB8006DE032 /* Policy.swift */,
+				34395D1D1DEE75D9006DE032 /* SelfService.swift */,
+				34395D1A1DEE747F006DE032 /* Maintenance.swift */,
+			);
+			name = policy;
+			sourceTree = "<group>";
+		};
 		34E338221DE40D280045861F /* stores */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,12 +233,16 @@
 		8404906B1DDB276B00D1E523 /* objects */ = {
 			isa = PBXGroup;
 			children = (
+				34395D191DEE745C006DE032 /* policy */,
 				84C6644E1DE819E400E8C00B /* Package.swift */,
+				34395D101DEE69C0006DE032 /* SMTPServer.swift */,
 				84C664531DE982D600E8C00B /* JSSResource.swift */,
 				8404906C1DDB278200D1E523 /* Building.swift */,
 				8404906E1DDB281C00D1E523 /* Department.swift */,
+				34395D221DEEAACD006DE032 /* LDAPServer.swift */,
 				840490701DDB286200D1E523 /* SystemInformation.swift */,
 				840490721DDB28F600D1E523 /* Account.swift */,
+				34395D161DEE6FF6006DE032 /* Category.swift */,
 				840490741DDB29D000D1E523 /* Site.swift */,
 				840490761DDB2A7600D1E523 /* Privileges.swift */,
 				840490781DDB2AF700D1E523 /* ActivationCode.swift */,
@@ -331,12 +366,15 @@
 				244A45EE1DEBFEE3001596E5 /* DistributionPointStore.swift in Sources */,
 				840490751DDB29D000D1E523 /* Site.swift in Sources */,
 				84C6645A1DEAD23800E8C00B /* MirrorParser.swift in Sources */,
+				34395D1E1DEE75D9006DE032 /* SelfService.swift in Sources */,
+				34395D141DEE6DB8006DE032 /* Policy.swift in Sources */,
 				244A45F01DEC00B0001596E5 /* DistributionPoint.swift in Sources */,
 				84C664541DE982D600E8C00B /* JSSResource.swift in Sources */,
 				24B02A401DD48F32001596E5 /* UAPI.swift in Sources */,
 				8404906D1DDB278200D1E523 /* Building.swift in Sources */,
 				244A45EC1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift in Sources */,
 				840490711DDB286200D1E523 /* SystemInformation.swift in Sources */,
+				34395D231DEEAACD006DE032 /* LDAPServer.swift in Sources */,
 				34E338171DE3ED6F0045861F /* API.swift in Sources */,
 				244A45FB1DED6162001596E5 /* GenericStore.swift in Sources */,
 				84C6644F1DE819E500E8C00B /* Package.swift in Sources */,
@@ -344,8 +382,11 @@
 				24B02A3E1DD48EEA001596E5 /* Token.swift in Sources */,
 				840490771DDB2A7600D1E523 /* Privileges.swift in Sources */,
 				8404906F1DDB281C00D1E523 /* Department.swift in Sources */,
+				34395D111DEE69C0006DE032 /* SMTPServer.swift in Sources */,
 				34E338261DE411340045861F /* JSSStore.swift in Sources */,
+				34395D1B1DEE747F006DE032 /* Maintenance.swift in Sources */,
 				840490731DDB28F600D1E523 /* Account.swift in Sources */,
+				34395D171DEE6FF6006DE032 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,25 +397,32 @@
 				244A45F91DED2E1E001596E5 /* GenericStoreTests.swift in Sources */,
 				34E3381C1DE3FA550045861F /* Privileges.swift in Sources */,
 				84C6645B1DEAD23800E8C00B /* MirrorParser.swift in Sources */,
+				34395D1F1DEE75D9006DE032 /* SelfService.swift in Sources */,
+				34395D211DEE7905006DE032 /* CoderTests.swift in Sources */,
+				34395D1C1DEE747F006DE032 /* Maintenance.swift in Sources */,
 				244A45F11DEC0398001596E5 /* DistributionPointStore.swift in Sources */,
 				244A45FE1DED6A46001596E5 /* ActivationCodeTests.swift in Sources */,
 				24B02A551DD496CE001596E5 /* UAPI.swift in Sources */,
 				244A45FC1DED6162001596E5 /* GenericStore.swift in Sources */,
 				84C6645F1DEADA0E00E8C00B /* Package.swift in Sources */,
 				84C664551DE982D600E8C00B /* JSSResource.swift in Sources */,
+				34395D181DEE6FF6006DE032 /* Category.swift in Sources */,
 				34E338181DE3F1860045861F /* API.swift in Sources */,
 				34E3381E1DE3FA590045861F /* Site.swift in Sources */,
 				34E338281DE4132E0045861F /* JSSStore.swift in Sources */,
 				24D66F661DD9BE2F001596E5 /* Token.swift in Sources */,
+				34395D151DEE6DB8006DE032 /* Policy.swift in Sources */,
 				244A45F71DEC4C91001596E5 /* PackageTests.swift in Sources */,
 				34E338201DE3FA5D0045861F /* Department.swift in Sources */,
 				244A45F51DEC12AC001596E5 /* JSSXMLKeyedArchiver.swift in Sources */,
 				34E338211DE3FA5E0045861F /* Building.swift in Sources */,
 				84C6645E1DEAD95500E8C00B /* ParserTests.swift in Sources */,
+				34395D241DEEAACD006DE032 /* LDAPServer.swift in Sources */,
 				34E3381D1DE3FA570045861F /* Account.swift in Sources */,
 				244A45F21DEC039B001596E5 /* DistributionPoint.swift in Sources */,
 				34E3381F1DE3FA5B0045861F /* SystemInformation.swift in Sources */,
 				244A45F41DEC0699001596E5 /* DistributionPointTests.swift in Sources */,
+				34395D121DEE69C0006DE032 /* SMTPServer.swift in Sources */,
 				34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

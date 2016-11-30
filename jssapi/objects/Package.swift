@@ -1,7 +1,7 @@
 import Foundation
 
 
-class Package : JSSResource, NSCoding {
+class Package : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/packages/id/",
@@ -57,7 +57,7 @@ class Package : JSSResource, NSCoding {
         self.init()
     }
     
-    func encode(with aCoder: NSCoder) {
+    override func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.category, forKey:"category")

@@ -23,6 +23,8 @@ class MirrorParser : NSObject, XMLParserDelegate {
     var currentLabel: String?
     var currentText: String?
     var ignoreCurrent: Bool = false
+    // A dict of delegates with the type of element they can handle
+    var delegates: [String:XMLParserDelegate] = [:]
     
     init(reflecting subject: AnyObject) {
         self.subject = subject
@@ -73,10 +75,9 @@ class MirrorParser : NSObject, XMLParserDelegate {
                     fallthrough
                 case is URL:
                     print("Testing URL type")
-                    if let currentText = self.currentText {
-                        let currentUrl = URL(string: currentText)!
-                        print(currentUrl.absoluteString)
-                        //self.subject.setValue(currentUrl, forKey: objectKey)
+                    if let text = self.currentText, let url = URL(string: text) {
+                        print(url.absoluteString)
+                        self.subject.setValue(url, forKey: objectKey)
                     }
                 default:
                     print("Unhandled type for key \(objectKey)")
