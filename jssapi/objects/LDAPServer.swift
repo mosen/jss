@@ -15,13 +15,28 @@ class LDAPAccount: NSCoding {
 }
 
 class LDAPConnection {
+    
+    enum ServerType: String {
+        case ActiveDirectory = "Active Directory"
+        case OpenDirectory = "Open Directory"
+        case EDirectory = "eDirectory"
+        case Custom = "Custom"
+    }
+    
+    enum AuthenticationType: String {
+        case None = "none"
+        case Simple = "simple"
+        case CRAMMD5 = "CRAM-MD5"
+        case DIGESTMD5 = "DIGEST-MD5"
+    }
+    
     var id: Int = 0
     var name: String? = nil
     var hostname: String? = nil
-    var serverType: String? = nil
+    var serverType: LDAPConnection.ServerType? = nil
     var port: Int = 389
     var useSsl: Bool = false
-    var authenticationType: String? = nil
+    var authenticationType: LDAPConnection.AuthenticationType? = LDAPConnection.AuthenticationType.None
     var account: LDAPAccount? = nil
     var openCloseTimeout: Int = 15
     var searchTimeout: Int = 60

@@ -2,6 +2,16 @@ import Foundation
 
 class Category: JSSResource {
 
+    // Special category when none is set
+    static var None: Category {
+        get {
+            let cat = Category()
+            cat.id = -1
+            cat.name = "No category assigned"
+            return cat
+        }
+    }
+    
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/categories/id/",
         ResourcePaths.FindByName: "/JSSResource/categories/name/",

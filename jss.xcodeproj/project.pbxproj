@@ -19,6 +19,11 @@
 		244A45FB1DED6162001596E5 /* GenericStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45FA1DED6162001596E5 /* GenericStore.swift */; };
 		244A45FC1DED6162001596E5 /* GenericStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45FA1DED6162001596E5 /* GenericStore.swift */; };
 		244A45FE1DED6A46001596E5 /* ActivationCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A45FD1DED6A46001596E5 /* ActivationCodeTests.swift */; };
+		244A46011DEFA256001596E5 /* ComputerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A46001DEFA256001596E5 /* ComputerGroup.swift */; };
+		244A46031DF028DD001596E5 /* DateTimeLimitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A46021DF028DD001596E5 /* DateTimeLimitations.swift */; };
+		244A46051DF02D76001596E5 /* Reboot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A46041DF02D76001596E5 /* Reboot.swift */; };
+		244A46071DF0313C001596E5 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A46061DF0313C001596E5 /* Scope.swift */; };
+		244A46081DF03141001596E5 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244A46061DF0313C001596E5 /* Scope.swift */; };
 		24B02A371DD48EB3001596E5 /* jssapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B02A351DD48EB3001596E5 /* jssapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24B02A3E1DD48EEA001596E5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3D1DD48EEA001596E5 /* Token.swift */; };
 		24B02A401DD48F32001596E5 /* UAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B02A3F1DD48F32001596E5 /* UAPI.swift */; };
@@ -87,6 +92,10 @@
 		244A45F81DED2E1E001596E5 /* GenericStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStoreTests.swift; sourceTree = "<group>"; };
 		244A45FA1DED6162001596E5 /* GenericStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericStore.swift; path = stores/GenericStore.swift; sourceTree = "<group>"; };
 		244A45FD1DED6A46001596E5 /* ActivationCodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivationCodeTests.swift; sourceTree = "<group>"; };
+		244A46001DEFA256001596E5 /* ComputerGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComputerGroup.swift; path = objects/ComputerGroup.swift; sourceTree = "<group>"; };
+		244A46021DF028DD001596E5 /* DateTimeLimitations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTimeLimitations.swift; path = objects/policy/DateTimeLimitations.swift; sourceTree = "<group>"; };
+		244A46041DF02D76001596E5 /* Reboot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reboot.swift; path = objects/policy/Reboot.swift; sourceTree = "<group>"; };
+		244A46061DF0313C001596E5 /* Scope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scope.swift; path = objects/policy/Scope.swift; sourceTree = "<group>"; };
 		24B02A321DD48EB3001596E5 /* jssapi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = jssapi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B02A351DD48EB3001596E5 /* jssapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jssapi.h; sourceTree = "<group>"; };
 		24B02A361DD48EB3001596E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,7 +228,10 @@
 		34395D191DEE745C006DE032 /* policy */ = {
 			isa = PBXGroup;
 			children = (
+				244A46021DF028DD001596E5 /* DateTimeLimitations.swift */,
+				244A46041DF02D76001596E5 /* Reboot.swift */,
 				34395D131DEE6DB8006DE032 /* Policy.swift */,
+				244A46061DF0313C001596E5 /* Scope.swift */,
 				34395D1D1DEE75D9006DE032 /* SelfService.swift */,
 				34395D1A1DEE747F006DE032 /* Maintenance.swift */,
 			);
@@ -244,6 +256,7 @@
 				34395D101DEE69C0006DE032 /* SMTPServer.swift */,
 				84C664531DE982D600E8C00B /* JSSResource.swift */,
 				8404906C1DDB278200D1E523 /* Building.swift */,
+				244A46001DEFA256001596E5 /* ComputerGroup.swift */,
 				8404906E1DDB281C00D1E523 /* Department.swift */,
 				34395D221DEEAACD006DE032 /* LDAPServer.swift */,
 				840490701DDB286200D1E523 /* SystemInformation.swift */,
@@ -371,15 +384,19 @@
 			files = (
 				244A45EE1DEBFEE3001596E5 /* DistributionPointStore.swift in Sources */,
 				840490751DDB29D000D1E523 /* Site.swift in Sources */,
+				244A46051DF02D76001596E5 /* Reboot.swift in Sources */,
 				84C6645A1DEAD23800E8C00B /* MirrorParser.swift in Sources */,
 				34395D1E1DEE75D9006DE032 /* SelfService.swift in Sources */,
 				34395D141DEE6DB8006DE032 /* Policy.swift in Sources */,
 				244A45F01DEC00B0001596E5 /* DistributionPoint.swift in Sources */,
 				84C664541DE982D600E8C00B /* JSSResource.swift in Sources */,
+				244A46071DF0313C001596E5 /* Scope.swift in Sources */,
 				24B02A401DD48F32001596E5 /* UAPI.swift in Sources */,
+				244A46031DF028DD001596E5 /* DateTimeLimitations.swift in Sources */,
 				8404906D1DDB278200D1E523 /* Building.swift in Sources */,
 				244A45EC1DEBEF0D001596E5 /* JSSXMLKeyedArchiver.swift in Sources */,
 				840490711DDB286200D1E523 /* SystemInformation.swift in Sources */,
+				244A46011DEFA256001596E5 /* ComputerGroup.swift in Sources */,
 				34395D231DEEAACD006DE032 /* LDAPServer.swift in Sources */,
 				34E338171DE3ED6F0045861F /* API.swift in Sources */,
 				244A45FB1DED6162001596E5 /* GenericStore.swift in Sources */,
@@ -419,6 +436,7 @@
 				34E338281DE4132E0045861F /* JSSStore.swift in Sources */,
 				24D66F661DD9BE2F001596E5 /* Token.swift in Sources */,
 				34395D151DEE6DB8006DE032 /* Policy.swift in Sources */,
+				244A46081DF03141001596E5 /* Scope.swift in Sources */,
 				244A45F71DEC4C91001596E5 /* PackageTests.swift in Sources */,
 				34E338201DE3FA5D0045861F /* Department.swift in Sources */,
 				244A45F51DEC12AC001596E5 /* JSSXMLKeyedArchiver.swift in Sources */,
