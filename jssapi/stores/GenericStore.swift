@@ -167,6 +167,7 @@ class GenericStore<ResourceType: JSSResource> {
         request.httpMethod = "POST"
         
         let xmlDoc = JSSXMLKeyedArchiver.archivedXML(withRootObject: resource, rootTag: resource.rootTag)
+        print(xmlDoc.xmlString)
         
         self.api.postXML(request: request, xml: xmlDoc) {
             (data, response, error) in
@@ -184,7 +185,7 @@ class GenericStore<ResourceType: JSSResource> {
                     }
                     
                     if let oidStr = oidEl?[0].stringValue {
-                        let id = Int(oidStr, radix: 0)
+                        let id = Int(oidStr, radix: 10)
                         return completionHandler(id, nil)
                     }
                     

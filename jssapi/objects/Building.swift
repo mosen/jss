@@ -20,6 +20,16 @@ class Building : JSSResource {
     var zipPostalCode: String? = nil
     var country: String? = nil
     
+    required init() {
+        super.init()
+        self.rootTag = "building"
+    }
+    
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
+    
     override func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")

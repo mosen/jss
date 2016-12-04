@@ -63,7 +63,7 @@ class PolicyGeneral: NSCoding {
     var targetDrive: String? = nil
     var offline: Bool = false // Make policy available offline
     var category: Category? = nil
-    var dateTimeLimitations: DateTimeLimitations? = nil
+    //var dateTimeLimitations: DateTimeLimitations? = nil
     var networkLimitations: NetworkLimitations? = nil
     var site: Site? = nil
     
