@@ -12,5 +12,12 @@ class PolicyTests: APITestCase {
         let xmlDoc = JSSXMLKeyedArchiver.archivedXML(withRootObject: general, rootTag: "general")
         print(xmlDoc.xmlString)
     }
+    
+    func testCreateEmptyPolicy() {
+        let policy = Policy()
+        
+        policy.general.enabled = true
+        
+    }
 
 }

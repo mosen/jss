@@ -9,12 +9,13 @@ import Foundation
 //
 //
 
-enum NetworkConnection: String {
+enum NetworkConnectionMinimum: String {
+    case None = "No Minimum"
     case Ethernet = "Ethernet"
 }
 
 class NetworkLimitations: NSCoding {
-    var minimumNetworkConnection: NetworkConnection? = nil
+    var minimumNetworkConnection: NetworkConnectionMinimum? = nil
     var anyIpAddress: Bool = true
     // networkSegments
     
@@ -40,6 +41,31 @@ enum PolicyTrigger {
     case EnrollmentComplete
     case RecurringCheckIn
     case Custom(String)
+    
+    func encode(with aCoder: NSCoder) {
+        var key: String?
+        
+        switch self {
+        case .Startup:
+            key = "trigger_startup"
+        case .Login:
+            key = "trigger_login"
+        case .Logout:
+            key = "trigger_logout"
+        case .NetworkStateChange:
+            key = "trigger_network_state_changed"
+        case .EnrollmentComplete:
+            key = "trigger_enrollment_complete"
+        case .RecurringCheckIn:
+            key = "trigger_checkin"
+        case .Custom(let eventName):
+            aCoder.encode(eventName, forKey: "trigger")
+        }
+        
+        if let k = key {
+            aCoder.encode(true, forKey: k)
+        }
+    }
 }
 
 /// Frequency at which to run the policy
@@ -58,8 +84,6 @@ class PolicyGeneral: NSCoding {
     var id: Int = 0
     var name: String? = nil
     var enabled: Bool = false
-    
-    // var triggers: Set<PolicyTrigger>
     
     var triggerCheckin: Bool = false
     var triggerEnrollmentComplete: Bool = false
@@ -126,6 +150,18 @@ class Policy: JSSResource {
     ]
     
     var general: PolicyGeneral? = nil
+    var scope: Scope? = nil
+    var selfService: SelfService? = nil
+//    var packageConfiguration: PackageConfiguration? = nil
+//    var scripts: [Script]? = nil
+//    var printers: [Printer]? = nil
+//    var dockItems: [DockItem]? = nil
+//    var accountMaintenance: AccountMaintenance? = nil
+//    var reboot: Reboot? = nil
+    var maintenance: Maintenance? = nil
+//    var filesProcesses: FilesProcesses? = nil
+//    var userInteraction: UserInteraction? = nil
+//    var diskEncryption: DiskEncryption? = nil
     
     override func encode(with aCoder: NSCoder) {
         aCoder.encode(self.general, forKey: "general")
