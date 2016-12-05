@@ -31,34 +31,46 @@ class NetworkLimitations: NSCoding {
     }
 }
 
+/// Event(s) to use to trigger the policy
+enum PolicyTrigger {
+    case Startup
+    case Login
+    case Logout
+    case NetworkStateChange
+    case EnrollmentComplete
+    case RecurringCheckIn
+    case Custom(String)
+}
 
-
-
+/// Frequency at which to run the policy
+enum PolicyExecutionFrequency: String {
+    case OncePerComputer = "Once per computer"
+    case OncePerUserPerComputer = "Once per user per computer"
+    case OncePerUser = "Once per user"
+    case OnceEveryDay = "Once every day"
+    case OnceEveryWeek = "Once every week"
+    case OnceEveryMonth = "Once every month"
+    case Ongoing = "Ongoing"
+}
 
 class PolicyGeneral: NSCoding {
-    
-    enum TriggerFrequency: String {
-        case OncePerComputer = "Once per computer"
-        case OncePerUserPerComputer = "Once per user per computer"
-        case OncePerUser = "Once per user"
-        case OnceEveryDay = "Once every day"
-        case OnceEveryWeek = "Once every week"
-        case OnceEveryMonth = "Once every month"
-        case Ongoing = "Ongoing"
-    }
     
     var id: Int = 0
     var name: String? = nil
     var enabled: Bool = false
-    var trigger: String? = nil
+    
+    // var triggers: Set<PolicyTrigger>
+    
     var triggerCheckin: Bool = false
     var triggerEnrollmentComplete: Bool = false
     var triggerLogin: Bool = false
     var triggerLogout: Bool = false
     var triggerNetworkStateChanged: Bool = false
     var triggerStartup: Bool = false
-    //trigger_other
-    var frequency: TriggerFrequency? = nil
+    var triggerOther: Bool = false
+    var trigger: String? = nil
+    
+    var frequency: PolicyExecutionFrequency? = nil
     var locationUserOnly: Bool = false
     var targetDrive: String? = nil
     var offline: Bool = false // Make policy available offline
@@ -88,10 +100,12 @@ class PolicyGeneral: NSCoding {
         aCoder.encode(self.locationUserOnly, forKey: "location_user_only")
         aCoder.encode(self.targetDrive, forKey: "target_drive")
         aCoder.encode(self.offline, forKey: "offline")
+        
         if let cat = self.category {
             aCoder.encode(cat, forKey: "category")
         } else {
-            aCoder.encode(Category.None, forKey: "category")
+            let noneCategory = Category.None
+            aCoder.encode(noneCategory, forKey: "category")
         }
         
         aCoder.encode(self.site, forKey: "site")

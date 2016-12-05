@@ -1,22 +1,30 @@
 import XCTest
 
-class BuildingTests: APITestCase {
+class SMTPServerTests: APITestCase {
 
-    func testCreateBuilding() {
+    let smtpServer: SMTPServer = {
+        let srv = SMTPServer()
+        srv.enabled = true
+        srv.host = "localhost"
+        srv.authorizationRequired = false
+        srv.port = 1025
+        srv.sendFromEmail = "jss@localhost"
+        srv.sendFromName = "Testing JSS"
+        srv.ssl = false
+        srv.tls = false
+        
+        return srv
+    }()
+
+    func testPutSMTPServer() {
         let expectation = self.expectation(description: "URLSessionDataTask Returns")
         
         do {
             let api = try API(url: url, credential: credential)
-            let store : GenericStore<Building> = GenericStore(api: api, paths: Building.resourcePaths)
-            let bldg = Building(name: "Test Building 2")
-            bldg.streetAddress1 = "Building D"
-            bldg.streetAddress2 = "123 Nowhere St"
-            bldg.city = "Freiburg"
-            bldg.country = "Germany"
-            bldg.stateProvince = "BadenWuerttemberg"
+            let store : GenericStore<SMTPServer> = GenericStore(api: api, paths: SMTPServer.resourcePaths)
             
-            store.create(bldg) {
-                (id, error) in
+            store.put(self.smtpServer) {
+                (error) in
                 
                 if let err = error as? APIHTTPError {
                     switch err {
@@ -29,7 +37,6 @@ class BuildingTests: APITestCase {
                 }
                 
                 XCTAssertNil(error)
-                XCTAssertNotNil(id)
                 expectation.fulfill()
             }
         } catch {
@@ -44,5 +51,4 @@ class BuildingTests: APITestCase {
             }
         }
     }
-
 }

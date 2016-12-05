@@ -67,7 +67,7 @@ class GenericStore<ResourceType: JSSResource> {
     /**
      Put the values for a singleton object, eg. activation code
      */
-    func put(resource: ResourceType, completionHandler: @escaping (Error?) -> Void) {
+    func put(_ resource: ResourceType, completionHandler: @escaping (Error?) -> Void) {
         guard let putSingletonPath = self.paths[ResourcePaths.PutSingleton] else {
             return completionHandler(StoreError.InvalidMethodForResource)
         }
