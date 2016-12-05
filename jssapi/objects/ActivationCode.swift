@@ -1,5 +1,8 @@
 import Foundation
 
+/**
+ ActivationCode manages the JSS Activation Code and Registered Organization.
+ */
 class ActivationCode : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
@@ -7,7 +10,8 @@ class ActivationCode : JSSResource {
         ResourcePaths.PutSingleton: "/JSSResource/activationcode",
     ]
     
-    var organizationName: String?
+    /// organizationName: The name of the registered organization
+    public var organizationName: String?
     var code: String?
     
     required init() {

@@ -10,6 +10,13 @@ import Foundation
 //    let CasperImaging: Set<CasperImagingPrivileges>
 //}
 
+public enum CRUDPrivilege: String {
+    case Create = "create"
+    case Read = "read"
+    case Update = "update"
+    case Delete = "delete"
+}
+
 
 enum JSSObjectPrivileges: String {
     case CreateAccounts = "Create Accounts"
@@ -40,3 +47,4 @@ enum CasperRemotePrivileges {
 enum CasperImagingPrivileges {
     
 }
+

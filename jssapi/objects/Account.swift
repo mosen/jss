@@ -1,13 +1,31 @@
 import Foundation
 
-struct AccountPreferences {
-    var language: String?
-    var dateFormat: String?
-    var region: String?
-    var timezone: String?
+/**
+ Contains information about JSS User Preferences
+ */
+public class AccountPreferences: NSCoding {
+    public var language: String?
+    public var dateFormat: String?
+    public var region: String?
+    public var timezone: String?
+    
+    init() {
+        
+    }
+    
+    convenience required public init?(coder aDecoder: NSCoder) {
+        self.init()
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+    
+    }
 }
 
-class Account : JSSResource {
+/**
+ Contains information about a JSS User account.
+ */
+public class Account : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/accounts/id/",
@@ -29,7 +47,7 @@ class Account : JSSResource {
     var groupIds: [Int]? = []
     var currentSiteId: Int? = nil
     
-    required init() {
+    required public init() {
         super.init()
     }
 }
@@ -40,4 +58,15 @@ struct AccountGroup {
     var siteId: Int?
     var privileges: [String]?
     var memberUserIds: [Int]?
+}
+
+
+// MARK:- Privileges
+extension Account {
+    public static let privileges : Dictionary<CRUDPrivilege,String> = [
+        .Create: "Create Accounts",
+        .Read: "Read Accounts",
+        .Update: "Update Accounts",
+        .Delete: "Delete Accounts",
+        ]
 }

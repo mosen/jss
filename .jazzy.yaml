@@ -1,0 +1,6 @@
+author: Mosen
+github_url: https://github.com/mosen/jss
+module: jss
+module_version: 0.1
+output: docs/swift_output
+documentation: docs/*.md

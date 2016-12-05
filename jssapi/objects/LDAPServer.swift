@@ -1,11 +1,22 @@
 import Foundation
 
+/**
+ LDAPAccount: Specifies a DN and password for querying an LDAP Server.
+*/
 class LDAPAccount: NSCoding {
+    
+    /// The distringuished name of the account used to bind to the LDAP server.
     var distinguishedUsername: String?
+    
+    /// The SHA-256 hash of the password used to authenticate to the LDAP server.
     var passwordSha256: String?
     
-    required init?(coder aDecoder: NSCoder) {
+    init() {
         
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
     }
     
     func encode(with aCoder: NSCoder) {
@@ -14,6 +25,9 @@ class LDAPAccount: NSCoding {
     }
 }
 
+/**
+ LDAPConnection specifies information about a connection to an LDAP Server.
+*/
 class LDAPConnection: NSCoding {
     
     enum ServerType: String {
@@ -44,8 +58,22 @@ class LDAPConnection: NSCoding {
     var useWildcards: Bool = true
     var connectionIsUsedFor: String? = "users"
     
-    required init?(coder aDecoder: NSCoder) {
+    init() {
         
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+    }
+    
+    convenience init(type: ServerType, hostname: String, bindDN: String) {
+        self.init()
+        self.serverType = type
+        self.hostname = hostname
+        
+        let acct = LDAPAccount()
+        acct.distinguishedUsername = bindDN
+        self.account = acct
     }
     
     func encode(with aCoder: NSCoder) {
