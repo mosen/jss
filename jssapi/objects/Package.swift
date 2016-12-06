@@ -1,7 +1,9 @@
 import Foundation
 
-
-class Package : JSSResource {
+/**
+ Package contains information about a package stored on a distribution point.
+ */
+public class Package : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/packages/id/",
@@ -12,23 +14,37 @@ class Package : JSSResource {
         ResourcePaths.DeleteById: "/JSSResource/packages/id/",
     ]
     
-    var id: Int = 0
+    /// Object Identifier
+    public var id: Int = 0
     
     // General
-    var name: String?
-    var category: String?
-    var filename: String?
-    var info: String?
-    var notes: String?
+    /// Display name for the package
+    public var name: String?
+    /// Assigned category
+    public var category: String?
+    /// Filename of the package on the distribution point (e.g. "MyPackage.dmg")
+    public var filename: String?
+    /// Information to display to the administrator when the package is deployed or uninstalled
+    public var info: String?
+    /// Notes to display about the package (e.g. who built it and when it was built)
+    public var notes: String?
     
     // Options
-    var priority: Int = 10
-    var fillUserTemplate: Bool = false
-    var fillExistingUsers: Bool = false
-    var allowUninstalled: Bool = false
-    var rebootRequired: Bool = false
-    // Install on boot drive after imaging
-    var bootVolumeRequired: Bool = false
+    /// Priority to use for deploying or uninstalling the package 
+    /// - Note: (e.g. A package with a priority of "1" is deployed or uninstalled before other packages)
+    public var priority: Int = 10
+    /// Fill user templates (FUT)
+    /// - Note: Fill new home directories with the contents of the home directory in the package's Users folder. Applies to DMGs only. This setting can be changed when deploying or uninstalling the package using a policy
+    public var fillUserTemplate: Bool = false
+    /// Fill existing user home directories (FEU)
+    /// - Note: Fill existing home directories with the contents of the home directory in the package's Users folder. Applies to DMGs only. This setting can be changed when deploying or uninstalling the package using a policy
+    public var fillExistingUsers: Bool = false
+    /// Allow the package to be uninstalled using Casper Remote or a policy. Applies to indexed packages only
+    public var allowUninstalled: Bool = false
+    /// Computers must be restarted after installing the package
+    public var rebootRequired: Bool = false
+    /// Install on boot drive after imaging
+    public var bootVolumeRequired: Bool = false
     
     // Limitations
     var osRequirements: String?
@@ -40,7 +56,7 @@ class Package : JSSResource {
     var reinstallOption: String?
     var sendNotification: Bool = false
     
-    required init() {
+    required public init() {
         super.init()
     }
     
@@ -53,11 +69,11 @@ class Package : JSSResource {
     
     // MARK:- NSCoding
     // Don't care about decoding
-    convenience required init?(coder aDecoder: NSCoder) {
+    convenience required public init?(coder aDecoder: NSCoder) {
         self.init()
     }
     
-    override func encode(with aCoder: NSCoder) {
+    override public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.category, forKey:"category")

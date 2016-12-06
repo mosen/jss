@@ -1,6 +1,9 @@
 import Foundation
 
-class Department: JSSResource {
+/**
+ Department contains a department name only.
+ */
+public class Department: JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/departments/id/",
@@ -11,15 +14,20 @@ class Department: JSSResource {
         ResourcePaths.DeleteById: "/JSSResource/departments/id/",
     ]
     
-    var id: Int = 0
-    var name: String? = nil
+    /// Object Identifier
+    public var id: Int = 0
     
-    required init() {
+    /// Department name (must be unique)
+    public var name: String? = nil
+    
+    required public init() {
         super.init()
         self.rootTag = "department"
     }
     
-    override func encode(with aCoder: NSCoder) {
+    // MARK:- NSCoding
+    
+    override public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
     }

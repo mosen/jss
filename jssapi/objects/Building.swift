@@ -1,6 +1,9 @@
 import Foundation
 
-class Building : JSSResource {
+/**
+ Building contains information about a building name and address.
+ */
+public class Building : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/buildings/id/",
@@ -11,16 +14,31 @@ class Building : JSSResource {
         ResourcePaths.DeleteById: "/JSSResource/buildings/id/",
     ]
     
-    var id: Int = 0
-    var name: String? = nil
-    var streetAddress1: String? = nil
-    var streetAddress2: String? = nil
-    var city: String? = nil
-    var stateProvince: String? = nil
-    var zipPostalCode: String? = nil
-    var country: String? = nil
+    /// Object identifier
+    public var id: Int = 0
     
-    required init() {
+    /// Name of the building
+    public var name: String? = nil
+    
+    /// Street Address (Line 1), Currently does not work with XML API
+    public var streetAddress1: String? = nil
+    
+    /// Street Address (Line 2), Currently does not work with XML API
+    public var streetAddress2: String? = nil
+    
+    /// City, Currently does not work with XML API
+    public var city: String? = nil
+    
+    /// State/Province, Currently does not work with XML API
+    public var stateProvince: String? = nil
+    
+    /// ZIP/Postal Code, Currently does not work with XML API
+    public var zipPostalCode: String? = nil
+    
+    /// Country, Currently does not work with XML API
+    public var country: String? = nil
+    
+    required public init() {
         super.init()
         self.rootTag = "building"
     }
@@ -30,7 +48,7 @@ class Building : JSSResource {
         self.name = name
     }
     
-    override func encode(with aCoder: NSCoder) {
+    override public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.streetAddress1, forKey: "street_address_1")

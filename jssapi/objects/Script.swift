@@ -1,6 +1,9 @@
 import Foundation
 
-class Script: JSSResource {
+/**
+ A script object represents a bash script stored in the JSS database.
+ */
+public class Script: JSSResource {
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/scripts/id/",
         ResourcePaths.FindByName: "/JSSResource/scripts/name/",
@@ -10,20 +13,35 @@ class Script: JSSResource {
         ResourcePaths.DeleteById: "/JSSResource/scripts/id/",
         ]
     
-    enum ImagingAction: String {
+    /// ImagingAction is specifically used for scripts to indicate when a script should run.
+    public enum ImagingAction: String {
         case After = "After"
         case Before = "Before"
         case AtReboot = "At Reboot"
     }
     
-    var id: Int = 0
-    var name: String? = nil
+    /// Object Identifier
+    public var id: Int = 0
     
-    var category: Category? = nil
-    var filename: String? = nil
-    var info: String? = nil
-    var notes: String? = nil
-    var priority: ImagingAction = .After
+    /// Script name (must be unique)
+    public var name: String? = nil
+    
+    /// Category
+    public var category: Category? = nil
+    
+    /// Script filename
+    public var filename: String? = nil
+    
+    /// Script information
+    public var info: String? = nil
+    
+    /// Administrator notes
+    public var notes: String? = nil
+    
+    /// When to execute the script (if part of imaging)
+    public var priority: ImagingAction = .After
+    
     //var osRequirements:
-    var scriptContentsEncoded: Data? = nil
+    /// Base64 encoded script content.
+    public var scriptContentsEncoded: Data? = nil
 }

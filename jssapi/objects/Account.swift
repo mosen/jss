@@ -33,18 +33,32 @@ public class Account : JSSResource {
         ResourcePaths.FindAll: "/JSSResource/accounts"
     ]
     
-    var id: Int = -1
-    var name: String? = nil
-    var fullName: String? = nil
-    var directoryUser: Bool = false
-    var email: String? = nil
-    var passwordSha256: String? = nil
+    /// The object identifier, should be zero if creating a new entry.
+    public var id: Int = -1
+    
+    /// The account username which should be unique.
+    public var name: String? = nil
+    
+    /// Full name
+    public var fullName: String? = nil
+    
+    /// Is this user directory based?
+    public var directoryUser: Bool = false
+    
+    /// E-mail address
+    public var email: String? = nil
+    
+    /// SHA-256 hash of the password
+    public var passwordSha256: String? = nil
+    
     var preferences: AccountPreferences? = nil
     // var isMultiSiteAdmin: Bool
     var accessLevel: String? = nil
     var privilegeSet: String? = nil
     //var privileges: Set<ReconPrivileges>? = nil
-    var groupIds: [Int]? = []
+    
+    /// An array of the group id's that this user is a member of
+    public var groupIds: [Int]? = []
     var currentSiteId: Int? = nil
     
     required public init() {

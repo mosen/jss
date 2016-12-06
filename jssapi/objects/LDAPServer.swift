@@ -3,23 +3,23 @@ import Foundation
 /**
  LDAPAccount: Specifies a DN and password for querying an LDAP Server.
 */
-class LDAPAccount: NSCoding {
+public class LDAPAccount: NSCoding {
     
     /// The distringuished name of the account used to bind to the LDAP server.
-    var distinguishedUsername: String?
+    public var distinguishedUsername: String?
     
     /// The SHA-256 hash of the password used to authenticate to the LDAP server.
-    var passwordSha256: String?
+    public var passwordSha256: String?
     
     init() {
         
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
+    required convenience public init?(coder aDecoder: NSCoder) {
         self.init()
     }
     
-    func encode(with aCoder: NSCoder) {
+    public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.distinguishedUsername, forKey: "distinguished_username")
         aCoder.encode(self.passwordSha256, forKey: "password_sha256")
     }
@@ -28,41 +28,53 @@ class LDAPAccount: NSCoding {
 /**
  LDAPConnection specifies information about a connection to an LDAP Server.
 */
-class LDAPConnection: NSCoding {
+public class LDAPConnection: NSCoding {
     
-    enum ServerType: String {
+    public enum ServerType: String {
         case ActiveDirectory = "Active Directory"
         case OpenDirectory = "Open Directory"
         case EDirectory = "eDirectory"
         case Custom = "Custom"
     }
     
-    enum AuthenticationType: String {
+    public enum AuthenticationType: String {
         case None = "none"
         case Simple = "simple"
         case CRAMMD5 = "CRAM-MD5"
         case DIGESTMD5 = "DIGEST-MD5"
     }
     
-    var id: Int = 0
-    var name: String? = nil
-    var hostname: String? = nil
-    var serverType: LDAPConnection.ServerType? = nil
-    var port: Int = 389
-    var useSsl: Bool = false
-    var authenticationType: LDAPConnection.AuthenticationType? = LDAPConnection.AuthenticationType.None
-    var account: LDAPAccount? = nil
-    var openCloseTimeout: Int = 15
-    var searchTimeout: Int = 60
+    /// Object Identifier
+    public var id: Int = 0
+    /// The name of the LDAP connection
+    public var name: String? = nil
+    /// The hostname of the LDAP server
+    public var hostname: String? = nil
+    /// The type of LDAP server we are connecting to
+    public var serverType: LDAPConnection.ServerType? = nil
+    /// The port to use (389 for LDAP)
+    public var port: Int = 389
+    /// Enable SSL connection to the LDAP server
+    public var useSsl: Bool = false
+    /// The type of authentication to use when querying the LDAP server
+    public var authenticationType: LDAPConnection.AuthenticationType? = LDAPConnection.AuthenticationType.None
+    /// The credentials to use when binding, including the distinguished name of the account to bind.
+    public var account: LDAPAccount? = nil
+    /// Amount of time to wait before canceling an attempt to connect to the LDAP server (in seconds).
+    public var openCloseTimeout: Int = 15
+    /// Amount of time to wait before canceling a search request sent to the LDAP server (in seconds).
+    public var searchTimeout: Int = 60
     // referral_response
+    /// Use Wildcards When Searching
     var useWildcards: Bool = true
+    
     var connectionIsUsedFor: String? = "users"
     
     init() {
         
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
+    required convenience public init?(coder aDecoder: NSCoder) {
         self.init()
     }
     
@@ -76,7 +88,7 @@ class LDAPConnection: NSCoding {
         self.account = acct
     }
     
-    func encode(with aCoder: NSCoder) {
+    public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.hostname, forKey: "hostname")
@@ -92,7 +104,12 @@ class LDAPConnection: NSCoding {
     }
 }
 
-class LDAPServer: JSSResource {
-    var connection: LDAPConnection? = nil
+/**
+ The LDAPServer resource contains information about a connection to an LDAP service, as well
+ as the necessary attribute mappings for user and group information.
+ */
+public class LDAPServer: JSSResource {
+    /// Connection information
+    public var connection: LDAPConnection? = nil
     
 }

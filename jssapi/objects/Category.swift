@@ -1,9 +1,13 @@
 import Foundation
 
-class Category: JSSResource {
+/**
+ A category is used to organise many different types of objects in the JSS.
+ Most objects will let you specify a category by name and not by ID.
+ */
+public class Category: JSSResource {
 
-    // Special category when none is set
-    static var None: Category {
+    /// The "None" category. Use this when you specifically want to un-set a category.
+    public static var None: Category {
         get {
             let cat = Category()
             cat.id = -1
@@ -21,21 +25,25 @@ class Category: JSSResource {
         ResourcePaths.DeleteById: "/JSSResource/categories/id/",
     ]
     
-    var id: Int = 0
-    var name: String? = nil
-    var priority: Int = 9
+    /// Object Identifier
+    public var id: Int = 0
     
-    required init() {
+    /// Category Name
+    public var name: String? = nil
+    
+    public var priority: Int = 9
+    
+    required public init() {
         super.init()
     }
     
     // MARK:- NSCoding
     // Don't care about decoding
-    convenience required init?(coder aDecoder: NSCoder) {
+    convenience required public init?(coder aDecoder: NSCoder) {
         self.init()
     }
     
-    override func encode(with aCoder: NSCoder) {
+    override public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
         aCoder.encode(self.priority, forKey:"priority")
