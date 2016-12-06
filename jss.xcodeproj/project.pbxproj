@@ -63,6 +63,7 @@
 		34423C441DF4F62B00535A6E /* jsstouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34423C3B1DF4F62B00535A6E /* jsstouch.framework */; };
 		34423C491DF4F62B00535A6E /* jssTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34423C481DF4F62B00535A6E /* jssTests.swift */; };
 		34423C4B1DF4F62B00535A6E /* jss.h in Headers */ = {isa = PBXBuildFile; fileRef = 34423C3D1DF4F62B00535A6E /* jss.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		344DF2A61DF664EE0018A582 /* Basic.md in Sources */ = {isa = PBXBuildFile; fileRef = 344DF2A51DF664EE0018A582 /* Basic.md */; };
 		34E338171DE3ED6F0045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E338181DE3F1860045861F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E338161DE3ED6F0045861F /* API.swift */; };
 		34E3381B1DE3FA530045861F /* ActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840490781DDB2AF700D1E523 /* ActivationCode.swift */; };
@@ -153,6 +154,7 @@
 		34423C431DF4F62B00535A6E /* jsstouchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jsstouchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34423C481DF4F62B00535A6E /* jssTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jssTests.swift; sourceTree = "<group>"; };
 		34423C4A1DF4F62B00535A6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		344DF2A51DF664EE0018A582 /* Basic.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Basic.md; path = docs/Basic.md; sourceTree = "<group>"; };
 		34E338161DE3ED6F0045861F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		34E338251DE411340045861F /* JSSStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSStore.swift; path = stores/JSSStore.swift; sourceTree = "<group>"; };
 		8404906C1DDB278200D1E523 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Building.swift; path = objects/Building.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				24BD17401DF55A57001596E5 /* .jazzy.yaml */,
 				24BD17421DF55B49001596E5 /* README.md */,
 				24BD17431DF55EC6001596E5 /* Policies.md */,
+				344DF2A51DF664EE0018A582 /* Basic.md */,
 			);
 			name = docs;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				34395D141DEE6DB8006DE032 /* Policy.swift in Sources */,
 				244A45F01DEC00B0001596E5 /* DistributionPoint.swift in Sources */,
 				84C664541DE982D600E8C00B /* JSSResource.swift in Sources */,
+				344DF2A61DF664EE0018A582 /* Basic.md in Sources */,
 				244A46071DF0313C001596E5 /* Scope.swift in Sources */,
 				24B02A401DD48F32001596E5 /* UAPI.swift in Sources */,
 				244A46031DF028DD001596E5 /* DateTimeLimitations.swift in Sources */,

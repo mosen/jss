@@ -19,13 +19,23 @@ enum ResourcePaths {
     case FindByCategory // "/JSSResource/objects/category/{name}"
 }
 
-// GenericStore implements a REST interface for every object type in the JSS using Generics
-// to provide the find, all, create, save, and delete methods
-class GenericStore<ResourceType: JSSResource> {
+/** 
+ GenericStore implements a REST interface for every object type in the JSS using Generics
+ to provide the find, all, create, save, and delete methods.
+ 
+ It retrieves the relative path of the REST object from the JSSResource that it was created with.
+ 
+ Example:
+ ```swift
+    let api = API(...)
+    let bldgStore = GenericStore<Building>(api: api, paths: Building.resourcePaths)
+ ```
+*/
+public class GenericStore<ResourceType: JSSResource> {
     let api: API
     var paths: Dictionary<ResourcePaths,String> = [:]
     
-    init(api: API, paths: Dictionary<ResourcePaths,String>) {
+    public init(api: API, paths: Dictionary<ResourcePaths,String>) {
         self.api = api
         self.paths = paths
     }
@@ -33,7 +43,7 @@ class GenericStore<ResourceType: JSSResource> {
     /**
      Get the values for a singleton object (eg. activation code)
      */
-    func get(completionHandler: @escaping (ResourceType?, Error?) -> Void) {
+    public func get(completionHandler: @escaping (ResourceType?, Error?) -> Void) {
         guard let getSingletonPath = self.paths[ResourcePaths.GetSingleton] else {
             return completionHandler(nil, StoreError.InvalidMethodForResource)
         }
@@ -67,7 +77,7 @@ class GenericStore<ResourceType: JSSResource> {
     /**
      Put the values for a singleton object, eg. activation code
      */
-    func put(_ resource: ResourceType, completionHandler: @escaping (Error?) -> Void) {
+    public func put(_ resource: ResourceType, completionHandler: @escaping (Error?) -> Void) {
         guard let putSingletonPath = self.paths[ResourcePaths.PutSingleton] else {
             return completionHandler(StoreError.InvalidMethodForResource)
         }
@@ -87,10 +97,10 @@ class GenericStore<ResourceType: JSSResource> {
     /**
      Find an object by its ID.
      
-     - parameter id: The object identifier
-     - completionHandler: A closure which will be called with a tuple containing the resulting object, or an error
+     - Parameter id: The object identifier
+     - Parameter completionHandler: A closure containing the optional result object, and an optional error
      */
-    func find(id: Int, completionHandler: @escaping (ResourceType?, Error?) -> Void) {
+    public func find(id: Int, completionHandler: @escaping (ResourceType?, Error?) -> Void) {
         guard let findByIdPath = self.paths[ResourcePaths.FindById] else {
             return completionHandler(nil, StoreError.InvalidMethodForResource)
         }
@@ -124,10 +134,10 @@ class GenericStore<ResourceType: JSSResource> {
     /**
      Find an object by its name.
      
-     - name: The object unique name
-     - completionHandler: A closure which will be called with a tuple containing the resulting object, or an error
+     - Parameter name: The object unique name
+     - Parameter completionHandler: A closure containing the optional result object, and an optional error
      */
-    func find(name: String, completionHandler: @escaping (ResourceType?, Error?) -> Void) {
+    public func find(name: String, completionHandler: @escaping (ResourceType?, Error?) -> Void) {
         guard let findByNamePath = self.paths[ResourcePaths.FindByName] else {
             return completionHandler(nil, StoreError.InvalidMethodForResource)
         }
@@ -156,8 +166,11 @@ class GenericStore<ResourceType: JSSResource> {
     
     /**
      Create an object.
+     
+     - Parameter _ resource: The resource to create
+     - Parameter completionHandler: A closure taking an optional new object ID and/or an error object.
      */
-    func create(_ resource: ResourceType, completionHandler: @escaping(Int?, Error?) -> Void) {
+    public func create(_ resource: ResourceType, completionHandler: @escaping(Int?, Error?) -> Void) {
         guard let createByIdPath = self.paths[ResourcePaths.CreateById] else {
             return completionHandler(nil, StoreError.InvalidMethodForResource)
         }
@@ -205,8 +218,11 @@ class GenericStore<ResourceType: JSSResource> {
     
     /**
       Delete an object from the JSS by its identifier
+     
+     - Parameter id: The object identifier
+     - Parameter completionHandler: A closure called with an Error object if one occurred.
      */
-    func delete(id: Int, completionHandler: @escaping(Error?) -> Void) {
+    public func delete(id: Int, completionHandler: @escaping(Error?) -> Void) {
         guard let deleteByIdPath = self.paths[ResourcePaths.DeleteById] else {
             return completionHandler(StoreError.InvalidMethodForResource)
         }
