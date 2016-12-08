@@ -6,7 +6,7 @@ enum StoreError : Error {
     case InvalidMethodForResource
 }
 
-enum ResourcePaths {
+public enum ResourcePaths {
     case GetSingleton // "/JSSResource/singleton"
     case PutSingleton // "/JSSResource/singleton"
     case FindById // "/JSSResource/object/id/"

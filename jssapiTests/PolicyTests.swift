@@ -16,7 +16,7 @@ class PolicyTests: APITestCase {
     func testCreateEmptyPolicy() {
         let policy = Policy()
         
-        policy.general.enabled = true
+        policy.general?.enabled = true
         
     }
 
