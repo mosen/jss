@@ -2,7 +2,7 @@ import Foundation
 
 let jssRealm = "Restful JSS Access -- Please supply your credentials"
 
-enum APIHTTPError : Error {
+public enum APIHTTPError : Error {
     case BadRequest(Data?) // 400
     case AuthenticationFailed // 401
     case AuthorizationFailed // 403
@@ -14,11 +14,11 @@ enum APIHTTPError : Error {
     case UnexpectedContentType // Server sent the wrong content - you should almost never see this
 }
 
-enum APIError : Error {
+public enum APIError : Error {
     case InvalidURL
 }
 
-class API : NSObject {
+public class API : NSObject {
     let credential: URLCredential
     let url: URL
     let protectionSpace: URLProtectionSpace

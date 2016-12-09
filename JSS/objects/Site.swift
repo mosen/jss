@@ -1,6 +1,6 @@
 import Foundation
 
-class Site: JSSResource {
+public class Site: JSSResource {
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/sites/id/",
         ResourcePaths.FindByName: "/JSSResource/sites/name/",
@@ -13,17 +13,17 @@ class Site: JSSResource {
     var id: Int = 0
     var name: String? = nil
     
-    required init() {
+    required public init() {
         super.init()
     }
     
     // MARK:- NSCoding
     // Don't care about decoding
-    convenience required init?(coder aDecoder: NSCoder) {
+    convenience required public init?(coder aDecoder: NSCoder) {
         self.init()
     }
     
-    override func encode(with aCoder: NSCoder) {
+    override public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
     }

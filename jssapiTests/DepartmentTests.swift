@@ -1,21 +1,17 @@
 import XCTest
 
-class BuildingTests: APITestCase {
+class DepartmentTests: APITestCase {
 
-    func testCreateBuilding() {
+    func testCreateDepartment() {
         let expectation = self.expectation(description: "URLSessionDataTask Returns")
         
         do {
             let api = try API(url: url, credential: credential)
-            let store : GenericStore<Building> = GenericStore(api: api, paths: Building.resourcePaths)
-            let bldg = Building(name: "Test Building 2")
-            bldg.streetAddress1 = "Building D"
-            bldg.streetAddress2 = "123 Nowhere St"
-            bldg.city = "Freiburg"
-            bldg.country = "Germany"
-            bldg.stateProvince = "BadenWuerttemberg"
+            let store : GenericStore<Department> = GenericStore(api: api, paths: Department.resourcePaths)
+            let dept = Department()
+            dept.name = "Information Technology"
             
-            store.create(bldg) {
+            store.create(dept) {
                 (id, error) in
                 
                 if let err = error as? APIHTTPError {
@@ -44,5 +40,4 @@ class BuildingTests: APITestCase {
             }
         }
     }
-
 }

@@ -44,7 +44,7 @@ class ActivationCodeTests: APITestCase {
             let api = try API(url: url, credential: credential)
             let store : GenericStore<ActivationCode> = GenericStore(api: api, paths:ActivationCode.resourcePaths)
             
-            store.put(resource: code) {
+            store.put(code) {
                 (error) in
                 XCTAssert(error is APIHTTPError)
                 if let err = error as? APIHTTPError {

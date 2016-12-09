@@ -14,8 +14,14 @@ func toCamelCase(_ text: String) -> String {
 }
 
 
-// Parse elements found in XML if they match an objects properties via reflection
-class MirrorParser : NSObject, XMLParserDelegate {
+/**
+ MirrorParser is a type of XMLParserDelegate which sets properties on an object based on tags being parsed.
+ It uses Swift's reflection API (Mirror).
+ 
+ If a tag name (in snake case), matches a camelCase property on an object, it determines the type of the value.
+ It attempts to construct a native value type from the tag text and set it on the object.
+ */
+public class MirrorParser : NSObject, XMLParserDelegate {
     
     let subject: AnyObject
     let mirror: Mirror
@@ -39,7 +45,7 @@ class MirrorParser : NSObject, XMLParserDelegate {
     
     // MARK:- XMLParserDelegate
     
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
         let camelElementName = toCamelCase(elementName)
         
@@ -52,7 +58,7 @@ class MirrorParser : NSObject, XMLParserDelegate {
         }
     }
     
-    func parser(_: XMLParser, didEndElement: String, namespaceURI: String?, qualifiedName: String?) {
+    public func parser(_: XMLParser, didEndElement: String, namespaceURI: String?, qualifiedName: String?) {
         if !self.ignoreCurrent {
             if let objectKey = self.currentLabel {
                 print("Setting value for \(objectKey)")
@@ -90,7 +96,7 @@ class MirrorParser : NSObject, XMLParserDelegate {
         self.currentText = nil
     }
     
-    func parser(_: XMLParser, foundCharacters: String) {
+    public func parser(_: XMLParser, foundCharacters: String) {
         if let value = self.currentText {
             self.currentText = value + foundCharacters
         } else {

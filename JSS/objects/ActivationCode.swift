@@ -1,16 +1,22 @@
 import Foundation
 
-class ActivationCode : JSSResource {
+/**
+ ActivationCode contains information about the JSS Activation Code and Registered Organization.
+ */
+public class ActivationCode : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.GetSingleton: "/JSSResource/activationcode",
         ResourcePaths.PutSingleton: "/JSSResource/activationcode",
     ]
     
-    var organizationName: String?
-    var code: String?
+    /// organizationName: The name of the registered organization
+    public var organizationName: String?
     
-    required init() {
+    /// The JSS activation code
+    public var code: String?
+    
+    required public init() {
         super.init()
         self.rootTag = "activation_code"
     }
@@ -22,13 +28,13 @@ class ActivationCode : JSSResource {
     }
     
     // MARK:- NSCoding
-    override func encode(with aCoder: NSCoder) {
+    override public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.organizationName, forKey: "organization_name")
         aCoder.encode(self.code, forKey: "code")
     }
     
     // Don't care about decoding
-    convenience required init?(coder aDecoder: NSCoder) {
+    convenience required public init?(coder aDecoder: NSCoder) {
         self.init()
     }
 }

@@ -1,6 +1,9 @@
 import Foundation
 
-class DistributionPoint : JSSResource {
+/**
+ DistributionPoint contains connection information for a (non-cloud) distribution point.
+ */
+public class DistributionPoint : JSSResource {
     
     static let resourcePaths : [ResourcePaths:String] = [
         ResourcePaths.FindById : "/JSSResource/distributionpoints/id/",
@@ -11,54 +14,71 @@ class DistributionPoint : JSSResource {
         ResourcePaths.UpdateById: "/JSSResource/distributionpoints/id/",
     ]
     
-    var id: Int = 0
+    /// Object Identifier
+    public var id: Int = 0
     
     // General
     
-    // Display Name
-    var name: String? = nil
-    // Server
-    var ipAddress: String? = nil
-    // Use as Master Distribution Point
-    var isMaster: Bool = false
-    // Name of failover DP
-    var failoverPoint: String? = nil
-    // Failover DP non-http URL
-    var failoverPointUrl: String? = nil
-    // Randomized Load Sharing
-    var enableLoadBalancing: Bool = false
+    /// Display Name
+    public var name: String? = nil
+    /// Server host or IP Address
+    public var ipAddress: String? = nil
+    /// Use as Master Distribution Point
+    public var isMaster: Bool = false
+    /// Name of failover distribution point
+    public var failoverPoint: String? = nil
+    /// Failover DP non-http URL
+    public var failoverPointUrl: String? = nil
+    /// Randomized Load Sharing
+    public var enableLoadBalancing: Bool = false
     
     // File Sharing
     // protocol name clash
-    var shareName: String? = nil
-    var connectionType: String? = nil // SMB or AFP
-    var workgroupOrDomain: String? = nil
-    var sharePort: Int = 139
-    var readWriteUsername: String? = nil
-    var readWritePasswordSha256: String? = nil
-    var readOnlyUsername: String? = nil
-    var readOnlyPasswordSha256: String? = nil
+    
+    /// Name of the file share to connect to.
+    public var shareName: String? = nil
+    
+    /// Type of file sharing connection, "SMB" or "AFP".
+    public var connectionType: String? = nil
+    /// SMB workgroup or domain name (if applicable)
+    public var workgroupOrDomain: String? = nil
+    /// File sharing TCP port (139 for SMB, 548 for AFP)
+    public var sharePort: Int = 139
+    
+    /// The read/write account username
+    public var readWriteUsername: String? = nil
+    /// The read/write account password SHA-256 hash
+    public var readWritePasswordSha256: String? = nil
+    /// The read only account username
+    public var readOnlyUsername: String? = nil
+    /// The read only account password SHA-256 hash
+    public var readOnlyPasswordSha256: String? = nil
 
-    // HTTP/HTTPS
-    var httpDownloadsEnabled: Bool = false
-    var port: Int = 80
-    var context: String? = nil
+    /// Enable HTTP/HTTPS downloads from this distribution point
+    public var httpDownloadsEnabled: Bool = false
+    
+    /// The HTTP(S) port to use
+    public var port: Int = 80
+    /// The relative path to the share
+    public var context: String? = nil
     // Calculated from Use SSL + port + context
     var httpUrl: String? = nil
     
-    // HTTP/HTTPS No Auth
-    var noAuthenticationRequired: Bool = true
+    /// No authentication is required for HTTP(S) connections.
+    public var noAuthenticationRequired: Bool = true
     
-    // HTTP/HTTPS Username and Password
-    var usernamePasswordRequired: Bool = false
-    var httpUsername: String? = nil
-    var httpPasswordSha256: String? = nil
+    /// Enable HTTP/HTTPS Username and Password Authentication
+    public var usernamePasswordRequired: Bool = false
     
-    // HTTP/HTTPS Client Certificate
-    var certificateRequired: Bool = false
-    // Certificate name (doesnt include data)
-    var certificate: String? = nil
+    /// HTTP(S) username
+    public var httpUsername: String? = nil
+    /// HTTP(S) password SHA-256 hash
+    public var httpPasswordSha256: String? = nil
     
+    /// Enable HTTP/HTTPS Client Certificate Authentication
+    public var certificateRequired: Bool = false
+    /// Certificate name (doesnt include data)
+    public var certificate: String? = nil
     
     // Other
     var localPath: String? = nil
@@ -66,7 +86,7 @@ class DistributionPoint : JSSResource {
     var sshPasswordSha256: String? = nil
     
     // MARK:- NSCoding
-    override func encode(with aCoder: NSCoder) {
+    override public func encode(with aCoder: NSCoder) {
         // General
         aCoder.encode(self.id, forKey: "id")
         aCoder.encode(self.name, forKey: "name")
@@ -100,13 +120,13 @@ class DistributionPoint : JSSResource {
 //        aCoder.encode(self.certificate, forKey:"certificate")
     }
     
-    required init() {
+    required public init() {
         super.init()
         self.rootTag = "distribution_point"
     }
     
     // Don't care about decoding
-    convenience required init?(coder aDecoder: NSCoder) {
+    convenience required public init?(coder aDecoder: NSCoder) {
         self.init()
     }
 }
