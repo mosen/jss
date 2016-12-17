@@ -17,10 +17,11 @@ struct XMLArrayIterator<ElementType>: IteratorProtocol {
     }
 }
 
-
-// XML Collections can normally be treated as arrays, with the exception that we can't always infer the tag of the collection
-// or the tag of each element.
-// This type just wraps Array to provide that information.
+/*
+ XML Collections can normally be treated as arrays, with the exception that we can't always infer the tag of the collection
+ or the tag of each element.
+ This type just wraps Array to provide that information.
+*/
 struct XMLArray<ElementType>: Collection {
     
     var collectionTag: String = "array"

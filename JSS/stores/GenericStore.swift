@@ -212,10 +212,6 @@ public class GenericStore<ResourceType: JSSResource> {
         }
     }
     
-//    func delete(_ resource: ResourceType, completionHandler: @escaping(Error?) -> Void) {
-//        
-//    }
-    
     /**
       Delete an object from the JSS by its identifier
      
