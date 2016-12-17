@@ -18,6 +18,10 @@ public enum APIError : Error {
     case InvalidURL
 }
 
+/**
+ The API class wraps a connection to the API (credentials and URL), as well as acting as a middleware for throwing HTTP error codes as
+ native API errors.
+ */
 public class API : NSObject {
     let credential: URLCredential
     let url: URL
@@ -46,10 +50,10 @@ public class API : NSObject {
         
         super.init()
     }
-    
-    // fetchXML "decorates" a dataTask by performing a bunch of sanity checking for each request by an object store
-    // a
-    func fetchXML(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    /**
+        fetchXML "decorates" a dataTask by performing a bunch of sanity checking for each request by an object store
+    */
+    func fetch(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let session = URLSession(configuration: self.sessionConfig)
         
         let task = session.dataTask(with: request) {
@@ -93,10 +97,10 @@ public class API : NSObject {
         task.resume()
     }
     
-    func postXML(request: URLRequest, xml: XMLDocument, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    func upload(request: URLRequest, data: Data, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let session = URLSession(configuration: self.sessionConfig)
         
-        let task = session.uploadTask(with: request, from: xml.xmlData) {
+        let task = session.uploadTask(with: request, from: data) {
             (data, response, error) -> Void in
             // Don't perform any checking if the datatask failed anyway.
             if error != nil {

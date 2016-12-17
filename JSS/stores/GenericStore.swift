@@ -52,7 +52,7 @@ public class GenericStore<ResourceType: JSSResource> {
         let url = self.api.url.appendingPathComponent(urlPath)
         let request = URLRequest(url: url)
         
-        self.api.fetchXML(request: request) {
+        self.api.fetch(request: request) {
             (data, response, error) in
             
             if let err = error {
@@ -88,7 +88,7 @@ public class GenericStore<ResourceType: JSSResource> {
         request.httpMethod = "PUT"
         let xmlDoc = JSSXMLKeyedArchiver.archivedXML(withRootObject: resource, rootTag: resource.rootTag)
         
-        self.api.postXML(request: request, xml: xmlDoc) {
+        self.api.upload(request: request, data: xmlDoc.xmlData) {
             (data, response, error) in
             return completionHandler(error)
         }
@@ -109,7 +109,7 @@ public class GenericStore<ResourceType: JSSResource> {
         let url = self.api.url.appendingPathComponent(urlPath)
         let request = URLRequest(url: url)
         
-        self.api.fetchXML(request: request) {
+        self.api.fetch(request: request) {
             (data, response, error) in
             
             if let err = error {
@@ -146,7 +146,7 @@ public class GenericStore<ResourceType: JSSResource> {
         let url = self.api.url.appendingPathComponent(urlPath)
         let request = URLRequest(url: url)
         
-        self.api.fetchXML(request: request) {
+        self.api.fetch(request: request) {
             (data, response, error) in
             
             if let content = data {
@@ -182,7 +182,7 @@ public class GenericStore<ResourceType: JSSResource> {
         let xmlDoc = JSSXMLKeyedArchiver.archivedXML(withRootObject: resource, rootTag: resource.rootTag)
         print(xmlDoc.xmlString)
         
-        self.api.postXML(request: request, xml: xmlDoc) {
+        self.api.upload(request: request, data: xmlDoc.xmlData) {
             (data, response, error) in
             if let err = error {
                 completionHandler(nil, err)
@@ -231,7 +231,7 @@ public class GenericStore<ResourceType: JSSResource> {
         let url = self.api.url.appendingPathComponent(urlPath)
         let request = URLRequest(url: url)
         
-        self.api.fetchXML(request: request) {
+        self.api.fetch(request: request) {
             (data, response, error) in
             completionHandler(error)
         }
